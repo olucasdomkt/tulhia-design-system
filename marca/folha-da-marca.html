@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Tulhia, marca</title>
+<style>
+@font-face { font-family: "Bricolage"; src: url("../fontes/lp-bricolage.woff2") format("woff2"); font-weight: 500 800; font-display: block; }
+@font-face { font-family: "Hanken"; src: url("../fontes/lp-hanken.woff2") format("woff2"); font-weight: 400 700; font-display: block; }
+:root { --papel:#F3EEE4; --papel-2:#EBE4D6; --linha:#D8CDB8; --terra:#1B1914; --cinza:#5B574E; --verde:#1F4A3A; --verde-fundo:#E3EBE4; --ocre:#C47A2C; --ocre-claro:#E9B86B; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--papel); color: var(--terra); font-family: "Hanken", system-ui, sans-serif; font-size: 17px; line-height: 1.5; }
+main { max-width: 1120px; margin: 0 auto; padding: 48px 24px 72px; }
+h1, h2, .marca { font-family: "Bricolage", sans-serif; letter-spacing: -0.03em; }
+h1 { font-size: 40px; font-weight: 800; margin: 0 0 6px; }
+h2 { font-size: 22px; font-weight: 700; margin: 48px 0 14px; padding-top: 14px; border-top: 1px solid var(--linha); }
+.sub { color: var(--cinza); margin: 0 0 8px; max-width: 60ch; }
+.conceito { font-family: "Bricolage", sans-serif; font-size: 26px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; margin: 28px 0 10px; max-width: 24ch; }
+.grade { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.cartao { background: #fff; border: 1px solid var(--linha); border-radius: 14px; padding: 24px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; min-height: 220px; }
+.cartao.escuro { background: var(--verde); color: var(--papel); --marca-acento: var(--ocre-claro); }
+.cartao.terra { background: var(--terra); color: var(--papel); --marca-acento: var(--ocre-claro); }
+.cartao p { margin: 0; font-size: 13px; color: var(--cinza); text-align: center; }
+.cartao.escuro p, .cartao.terra p { color: rgba(243,238,228,.7); }
+.marca { font-weight: 800; color: currentColor; }
+.vertical { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.vertical .marca { font-size: 44px; line-height: 1; }
+.horizontal { display: flex; align-items: center; gap: 12px; }
+.horizontal .marca { font-size: 34px; line-height: 1; }
+svg.s { color: var(--verde); }
+.cartao.escuro svg.s, .cartao.terra svg.s { color: var(--papel); }
+.cores { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+.cor { border-radius: 12px; padding: 16px 14px; min-height: 120px; display: flex; flex-direction: column; justify-content: flex-end; border: 1px solid var(--linha); }
+.cor b { display: block; font-size: 14px; }
+.cor span { font-size: 13px; opacity: .8; }
+.regras { columns: 2; column-gap: 32px; padding-left: 20px; margin: 0; }
+.regras li { break-inside: avoid; margin: 0 0 8px; }
+.tipo { display: grid; gap: 18px; grid-template-columns: 1fr 1fr; }
+.tipo .cartao { align-items: flex-start; text-align: left; }
+.tipo .cartao p { text-align: left; }
+.icones { display: flex; gap: 24px; align-items: flex-end; flex-wrap: wrap; }
+.icones img { border-radius: 22%; box-shadow: 0 2px 10px rgba(0,0,0,.08); }
+.icones figure { margin: 0; text-align: center; font-size: 13px; color: var(--cinza); }
+.icones figcaption { margin-top: 8px; }
+@media (max-width: 700px) { .regras { columns: 1; } .tipo { grid-template-columns: 1fr; } h1 { font-size: 32px; } }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="tulha" viewBox="0 0 64 64"><rect x="7" y="38" width="14" height="18" fill="currentColor"/><polygon points="6,38 14,30.5 22,38" fill="currentColor"/><rect x="25" y="30" width="14" height="26" fill="currentColor"/><polygon points="24,30 32,22.5 40,30" fill="currentColor"/><rect x="43" y="20" width="14" height="36" fill="var(--marca-acento, #C47A2C)"/><polygon points="42,20 50,12.5 58,20" fill="var(--marca-acento, #C47A2C)"/><rect x="5" y="57" width="54" height="2.5" rx="1.25" fill="currentColor"/></symbol>
+</defs></svg>
+<main>
+<h1>Tulhia, a marca</h1>
+<p class="sub">Caixa e dívidas da fazenda, com consultor. Versão 1, 05/10/2026.</p>
+<p class="conceito">A tulha guarda a safra. A Tulhia guarda o caixa.</p>
+<p class="sub">O símbolo são três silos que sobem, lidos de uma vez como o gráfico de caixa dos próximos 12 meses: o produto é exatamente isso, ver o caixa mês a mês. O silo mais alto, em ocre, é o mês da safra, quando o dinheiro entra. Nome: tulha (o depósito da colheita) + IA.</p>
+
+<h2>Símbolo e assinaturas</h2>
+<div class="grade">
+  <div class="cartao"><svg class="s" width="120" height="120"><use href="#tulha"/></svg><p>Símbolo, versão principal sobre papel</p></div>
+  <div class="cartao"><div class="vertical"><svg class="s" width="84" height="84"><use href="#tulha"/></svg><span class="marca">Tulhia</span></div><p>Assinatura vertical</p></div>
+  <div class="cartao"><div class="horizontal"><svg class="s" width="44" height="44"><use href="#tulha"/></svg><span class="marca">Tulhia</span></div><p>Assinatura horizontal (cabeçalho, WhatsApp, documentos)</p></div>
+  <div class="cartao escuro"><div class="horizontal"><svg class="s" width="44" height="44"><use href="#tulha"/></svg><span class="marca">Tulhia</span></div><p>Sobre verde: papel e ocre claro</p></div>
+  <div class="cartao terra"><div class="vertical"><svg class="s" width="84" height="84"><use href="#tulha"/></svg><span class="marca">Tulhia</span></div><p>Sobre terra (rodapé, telas escuras)</p></div>
+</div>
+
+<h2>Cores</h2>
+<div class="cores">
+  <div class="cor" style="background:#1F4A3A;color:#F3EEE4"><b>Verde tulha</b><span>#1F4A3A · principal, silos, botões</span></div>
+  <div class="cor" style="background:#C47A2C;color:#F3EEE4"><b>Ocre safra</b><span>#C47A2C · um acento por tela</span></div>
+  <div class="cor" style="background:#F3EEE4;color:#1B1914"><b>Papel</b><span>#F3EEE4 · fundo</span></div>
+  <div class="cor" style="background:#1B1914;color:#F3EEE4"><b>Terra</b><span>#1B1914 · texto, rodapé</span></div>
+  <div class="cor" style="background:#E3EBE4;color:#1F4A3A"><b>Verde fundo</b><span>#E3EBE4 · faixas e cartões</span></div>
+  <div class="cor" style="background:#E9B86B;color:#1B1914"><b>Ocre claro</b><span>#E9B86B · acento sobre escuro</span></div>
+</div>
+
+<h2>Tipografia</h2>
+<div class="tipo">
+  <div class="cartao"><span class="marca" style="font-size:40px;line-height:1">Bricolage Grotesque 800</span><p>Nome e títulos. Entreletras -0,03em. O nome é sempre em Bricolage, com T maiúsculo e o resto minúsculo.</p></div>
+  <div class="cartao"><span style="font-size:24px;font-weight:500">Hanken Grotesk 400 a 700</span><p>Texto corrido, números, botões, telas do app. Nunca abaixo de 16 px no celular.</p></div>
+</div>
+
+<h2>Ícones e avatar</h2>
+<div class="icones">
+  <figure><img src="icone-app-512.png" width="120" height="120" alt=""><figcaption>Ícone do app (512)</figcaption></figure>
+  <figure><img src="apple-touch-icon.png" width="80" height="80" alt=""><figcaption>Toque no iPhone (180)</figcaption></figure>
+  <figure><img src="favicon-32.png" width="32" height="32" alt="" style="border-radius:8px"><figcaption>Favicon (32)</figcaption></figure>
+  <figure><img src="avatar-whatsapp-1024.png" width="120" height="120" alt="" style="border-radius:50%"><figcaption>Avatar do WhatsApp (1024, recorte redondo)</figcaption></figure>
+</div>
+
+<h2>Regras de uso</h2>
+<ol class="regras">
+  <li>O ocre vai só no silo mais alto. Nunca pintar os três de ocre nem o nome.</li>
+  <li>Sobre fundo escuro, os silos ficam em papel e o acento em ocre claro.</li>
+  <li>Tamanho mínimo do símbolo: 24 px na tela, 8 mm impresso. Abaixo disso, só o nome.</li>
+  <li>O símbolo não vai dentro de caixa ou círculo, salvo no ícone do app e no avatar, que já têm o fundo de papel.</li>
+  <li>Não esticar, não inclinar, não adicionar sombra, contorno ou degradê.</li>
+  <li>Área de respiro ao redor: a altura do silo menor.</li>
+  <li>Nome sempre "Tulhia", nunca "TULHIA" nem "tulhia".</li>
+  <li>Arquivos: tulhia-simbolo.svg (cores fixas), favicon.svg, icone-app-512.png, apple-touch-icon.png, avatar-whatsapp-1024.png, nesta pasta.</li>
+</ol>
+</main>
+</body>
+</html>

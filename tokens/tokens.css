@@ -1,0 +1,10 @@
+/* Tokens da Tulhia, copiados da landing page no ar (05/10/2026). */
+:root {
+  --papel: #F3EEE4; --papel-2: #EBE4D6; --areia: #DED3BF; --linha: #D8CDB8;
+  --terra: #1B1914; --cinza: #5B574E; --cinza-2: #8A847A;
+  --verde: #1F4A3A; --verde-escuro: #12332A; --verde-claro: #2C6A51; --verde-fundo: #E3EBE4;
+  --ocre: #C47A2C; --ocre-claro: #E9B86B; --vermelho: #A8392D; --vermelho-fundo: #F7E6E2;
+  --gutter: 20px; --max: 1180px;
+  --display: "Bricolage", "Bricolage Grotesque", system-ui, sans-serif;
+  --texto: "Hanken", "Hanken Grotesk", system-ui, sans-serif;
+}
