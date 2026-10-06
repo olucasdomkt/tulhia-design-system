@@ -1,5 +1,7 @@
 # Tulhia, design system
 
+> **Nome provisório.** Tulhia é um nome de trabalho, usado para visualizar a marca. O nome definitivo e a identidade ainda serão decididos com os sócios.
+
 **Tulhia = tulha + IA.** A tulha guarda a safra, a Tulhia guarda o caixa.
 
 Tulhia é um produto para o produtor rural: mostra quanto ele deve, quando cada parcela vence e em que mês o caixa da fazenda aperta, com um consultor responsável pela fazenda. Caixa e dívidas da fazenda, com consultor.
