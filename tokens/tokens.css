@@ -1,10 +1,46 @@
-/* Tokens da Tulhia, copiados da landing page no ar (05/10/2026). */
+/* Tokens da Tulhia, marca 1b Livro-caixa (escolhida em 05/10/2026).
+   Cores, fontes, margem e largura: iguais ao :root da landing no ar (landing/index.html).
+   Folha, espaço, raio, linhas e sombra: do design system (design-system.html).
+   Entre parênteses, o nome no design system quando ele é diferente do nome da variável. */
+
+@font-face { font-family: "Schibsted Grotesk"; src: url("../fontes/lp-schibsted.woff2") format("woff2"); font-weight: 400 800; font-style: normal; font-display: swap; }
+@font-face { font-family: "Spline Sans Mono"; src: url("../fontes/lp-spline-mono.woff2") format("woff2"); font-weight: 400 600; font-style: normal; font-display: swap; }
+
 :root {
-  --papel: #F3EEE4; --papel-2: #EBE4D6; --areia: #DED3BF; --linha: #D8CDB8;
-  --terra: #1B1914; --cinza: #5B574E; --cinza-2: #8A847A;
-  --verde: #1F4A3A; --verde-escuro: #12332A; --verde-claro: #2C6A51; --verde-fundo: #E3EBE4;
-  --ocre: #C47A2C; --ocre-claro: #E9B86B; --vermelho: #A8392D; --vermelho-fundo: #F7E6E2;
-  --gutter: 20px; --max: 1180px;
-  --display: "Bricolage", "Bricolage Grotesque", system-ui, sans-serif;
-  --texto: "Hanken", "Hanken Grotesk", system-ui, sans-serif;
+  /* cor */
+  --almaco: #F5F6F2;      /* fundo da página, texto sobre tinta, botão claro */
+  --almaco-2: #ECEEE8;    /* seção alternada clara */
+  --folha: #FFFFFF;       /* cartão, moldura de tela, aviso */
+  --pauta: #D9DDE3;       /* linha de 1 px entre linhas da conta */
+  --pauta-2: #C4CAD3;     /* pauta forte, sobre almaço-2 */
+  --tinta: #172238;       /* texto principal, botão primário, seções escuras, regras de 2 px */
+  --tinta-2: #2A3A5C;     /* (tinta-hover) hover do botão primário */
+  --tinta-3: #1F2C47;     /* (tinta-cartão) fundo de cartão dentro da seção escura */
+  --tinta-linha: #2E3D5C; /* borda e linha dentro da seção escura */
+  --tinta-fundo: #0F1729; /* rodapé */
+  --texto-2: #3B4352;     /* (grafite-texto) parágrafo de apoio, lead e descrição; 9,9:1 sobre almaço */
+  --grafite: #565E6B;     /* rótulos, legendas, notas; 6,2:1 sobre almaço */
+  --claro-2: #B8C0CC;     /* (névoa) texto de apoio sobre tinta; 8,9:1 */
+  --claro-3: #D5DAE2;     /* texto claro sobre tinta: linha de pré-lançamento do rodapé, rótulo e nota da chamada final */
+  --marca-texto: #F2D43D; /* o acento: uma vez por tela, no mês que aperta ou no número que importa; texto em tinta por cima */
+  --vermelho: #B3261E;    /* só caixa negativo e aviso, sempre com texto ou sinal de menos; não é cor de botão */
+
+  /* tipo */
+  --texto: "Schibsted Grotesk", system-ui, sans-serif; /* 400 a 800: títulos, texto e botões */
+  --mono: "Spline Sans Mono", ui-monospace, monospace; /* 400 a 600: valores, datas, rótulos e números de seção */
+
+  /* espaço */
+  --gutter: clamp(20px, 4vw, 48px); /* margem lateral: 20 no celular, 48 no desktop */
+  --max: 1200px;                    /* largura máxima */
+  --esp-1: 4px; --esp-2: 8px; --esp-3: 12px; --esp-4: 16px; --esp-5: 20px;
+  --esp-6: 24px; --esp-8: 32px; --esp-12: 48px; --esp-20: 80px; /* 80: entre colunas */
+  --secao: clamp(56px, 8vw, 112px); /* espaço vertical de seção, 56 a 112 */
+
+  /* forma */
+  --raio-0: 0;   /* fotos, seções, símbolo */
+  --raio-2: 2px; /* cartões, molduras */
+  --raio-4: 4px; /* botões */
+  --regra-forte: 2px solid #172238; /* abre seção, fecha a conta */
+  --linha-pauta: 1px solid #D9DDE3; /* separa linhas */
+  --sombra-tela: 0 28px 50px -30px rgba(23, 34, 56, .5); /* só na moldura de tela do app */
 }

@@ -1,5 +1,11 @@
 # Prompt para o Claude Design: Tulhia
 
+> **Direção escolhida em 05/10/2026: 1b Livro-caixa.** Projeto no Claude Design: https://claude.ai/design/p/827ef3a2-3008-4b77-90d0-0403a5b31f52
+>
+> Com este prompt, o Claude Design gerou as três direções da etapa 1: 1a Régua de silos, 1b Livro-caixa e 1c Telhado do silo. A 1b foi a escolhida, e no mesmo projeto saíram o design system (etapa 2), a landing (etapa 3) e o kit de marca (etapa 4). A marca 1b está documentada no `README.md`, em `design-system.html`, `tokens/` e `marca/`.
+>
+> O texto abaixo fica como registro do pedido. Ele cita a marca v1 dos silos como "marca atual", mas ela foi superada e está em `legado/v1-silos/`.
+
 Cole o texto abaixo no Claude Design. Anexe ou aponte este repositório (README, tokens, marca, fotos, telas-app, landing/index.html).
 
 ---

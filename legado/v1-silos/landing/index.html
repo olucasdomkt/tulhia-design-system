@@ -1,0 +1,507 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="format-detection" content="telephone=no">
+<title>Tulhia: caixa e dívidas da fazenda, com consultor</title>
+<meta name="description" content="Suas dívidas da fazenda num calendário só, junto com o extrato dos seus bancos. Um consultor confere as contas com você todo mês e avisa antes de o caixa apertar.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="color-scheme" content="only light">
+<meta name="theme-color" content="#F3EEE4">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Tulhia">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:url" content="https://tulhia.vercel.app/">
+<meta property="og:title" content="A próxima parcela cabe no caixa?">
+<meta property="og:description" content="Custeio, investimento, CPR e renegociação num calendário só. Um consultor confere as contas com você todo mês e avisa em que mês o caixa aperta.">
+<meta property="og:image" content="https://tulhia.vercel.app/og.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Quanto você deve, quando vence e em que mês o caixa aperta. Tulhia: caixa e dívidas da fazenda, com consultor.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="A próxima parcela cabe no caixa?">
+<meta name="twitter:description" content="Custeio, investimento, CPR e renegociação num calendário só. Um consultor confere as contas com você todo mês e avisa em que mês o caixa aperta.">
+<meta name="twitter:image" content="https://tulhia.vercel.app/og.png">
+<meta name="twitter:image:alt" content="Quanto você deve, quando vence e em que mês o caixa aperta. Tulhia: caixa e dívidas da fazenda, com consultor.">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preload" href="assets/lp-bricolage.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/lp-hanken.woff2" as="font" type="font/woff2" crossorigin>
+
+<style>
+@font-face { font-family: "Bricolage"; src: url("assets/lp-bricolage.woff2") format("woff2"); font-weight: 500 800; font-display: swap; }
+@font-face { font-family: "Hanken"; src: url("assets/lp-hanken.woff2") format("woff2"); font-weight: 400 700; font-display: swap; }
+
+:root {
+  --papel: #F3EEE4; --papel-2: #EBE4D6; --areia: #DED3BF; --linha: #D8CDB8;
+  --terra: #1B1914; --cinza: #5B574E; --cinza-2: #8A847A;
+  --verde: #1F4A3A; --verde-escuro: #12332A; --verde-claro: #2C6A51; --verde-fundo: #E3EBE4;
+  --ocre: #C47A2C; --ocre-claro: #E9B86B; --vermelho: #A8392D; --vermelho-fundo: #F7E6E2;
+  --gutter: 20px; --max: 1180px;
+  --display: "Bricolage", "Bricolage Grotesque", system-ui, sans-serif;
+  --texto: "Hanken", "Hanken Grotesk", system-ui, sans-serif;
+}
+@media (min-width: 600px) { :root { --gutter: 32px; } }
+@media (min-width: 1000px) { :root { --gutter: 48px; } }
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 88px; -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--papel); color: var(--terra); font: 400 18px/1.55 var(--texto); font-feature-settings: "ss01"; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+.largura { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+.marca { white-space: nowrap; }
+.rs { white-space: nowrap; font-variant-numeric: tabular-nums; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+
+/* tipos */
+.sobre { font: 700 13px/1.2 var(--texto); letter-spacing: .14em; text-transform: uppercase; color: var(--verde); margin: 0 0 14px; }
+h1 { font: 800 clamp(2.5rem, 6vw, 4.6rem)/1.02 var(--display); letter-spacing: -.025em; margin: 0 0 22px; }
+.t2 { font: 700 clamp(1.9rem, 3.3vw, 2.9rem)/1.08 var(--display); letter-spacing: -.02em; margin: 0 0 18px; }
+.t3 { font: 700 clamp(1.25rem, 2vw, 1.5rem)/1.2 var(--display); letter-spacing: -.01em; margin: 0 0 10px; }
+p { margin: 0 0 16px; }
+.grande { font-size: clamp(1.1rem, 1.6vw, 1.3rem); line-height: 1.5; color: var(--cinza); }
+.pequeno { font-size: 15px; line-height: 1.5; color: var(--cinza); }
+.texto-medida { max-width: 34em; }
+
+/* botão */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; background: var(--verde); color: #fff; font: 600 17px/1 var(--texto); padding: 0 24px; min-height: 54px; border-radius: 12px; text-decoration: none; white-space: nowrap; cursor: pointer; transition: background .2s, transform .15s; }
+.btn:hover { background: var(--verde-claro); }
+.btn:active { transform: translateY(1px); }
+.btn:focus-visible { outline: 3px solid var(--ocre); outline-offset: 3px; }
+.btn svg { width: 22px; height: 22px; fill: currentColor; flex: none; }
+.btn-claro { background: var(--papel); color: var(--verde); }
+.btn-claro:hover { background: #fff; }
+.btn-linha { background: transparent; color: var(--verde); box-shadow: inset 0 0 0 2px var(--verde); min-height: 46px; padding: 0 18px; font-size: 16px; }
+.btn-linha:hover { background: var(--verde); color: #fff; }
+
+/* cabeçalho */
+.cabecalho { position: sticky; top: 0; z-index: 10; background: rgba(243, 238, 228, .92); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid var(--linha); }
+.cabecalho .largura { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 68px; }
+.logo { display: inline-flex; align-items: center; gap: 10px; font: 800 24px/1 var(--display); letter-spacing: -.02em; color: var(--terra); text-decoration: none; }
+.logo svg { width: 32px; height: 32px; }
+@media (max-width: 599px) { .cabecalho .btn-linha { display: none; } }
+
+/* primeira tela */
+.hero { display: grid; grid-template-columns: 1fr; background: var(--papel); }
+.hero-texto { padding: 36px var(--gutter) 40px; }
+.hero-texto .btn { width: 100%; max-width: 420px; }
+.hero-texto .pequeno { margin-top: 12px; }
+.hero-foto { position: relative; margin: 0; aspect-ratio: 4 / 3; overflow: hidden; }
+.hero-foto img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 12%; }
+.credito { position: absolute; right: 10px; bottom: 8px; font: 500 11px/1.2 var(--texto); color: rgba(255,255,255,.85); background: rgba(0,0,0,.38); padding: 4px 8px; border-radius: 6px; }
+@media (min-width: 900px) {
+  .hero { grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); min-height: 640px; }
+  .hero-texto { order: 1; align-self: center; padding: 72px 56px 72px max(var(--gutter), calc((100vw - var(--max)) / 2)); }
+  .hero-foto { order: 2; aspect-ratio: auto; min-height: 640px; }
+  .hero-foto img { object-position: 50% 40%; }
+  .hero-texto .btn { width: auto; }
+}
+
+/* faixa de números */
+.numeros { background: var(--verde-escuro); color: var(--papel); }
+.numeros .largura { display: grid; gap: 22px; padding-top: 34px; padding-bottom: 34px; }
+.numeros .n { display: grid; gap: 4px; }
+.numeros b { font: 800 clamp(2.2rem, 3.6vw, 3.2rem)/1 var(--display); letter-spacing: -.02em; color: var(--ocre-claro); font-variant-numeric: tabular-nums; }
+.numeros span { color: #D9D2C3; font-size: 16px; line-height: 1.4; }
+@media (min-width: 700px) { .numeros .largura { grid-template-columns: repeat(3, 1fr); gap: 40px; } .numeros .n { padding-left: 18px; border-left: 2px solid rgba(233,184,107,.45); } }
+
+/* seções */
+.secao { padding: clamp(56px, 8vw, 104px) 0; }
+.secao + .secao { border-top: 1px solid var(--linha); }
+.secao.areia + .secao.escuro, .secao.escuro + .secao.areia { border-top: 0; }
+.passos-topo-grade { margin-bottom: 8px; }
+.foto.quatro-cinco { aspect-ratio: 4 / 5; }
+.confianca { list-style: none; margin: 22px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px 20px; font-size: 15px; color: var(--cinza); }
+.confianca li { display: flex; align-items: center; gap: 8px; }
+.confianca svg { width: 18px; height: 18px; color: var(--verde); flex: none; }
+.recebe { display: grid; gap: 16px; margin-top: 28px; }
+.recebe .item { background: #fff; border: 1px solid var(--linha); border-radius: 18px; padding: 24px 22px; display: grid; gap: 10px; align-content: start; }
+.recebe svg { width: 30px; height: 30px; color: var(--verde); fill: none; }
+.recebe svg[data-fill] { fill: currentColor; }
+.recebe b { font: 700 1.15rem/1.25 var(--display); }
+.recebe p { margin: 0; font-size: 16px; color: var(--cinza); }
+@media (min-width: 640px) { .recebe { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 1000px) { .recebe { grid-template-columns: repeat(4, 1fr); } }
+.escuro { background: var(--verde-escuro); color: var(--papel); border-top: 0 !important; }
+.escuro .sobre { color: var(--ocre-claro); }
+.escuro .grande, .escuro .pequeno, .escuro p { color: #D9D2C3; }
+.escuro .t2, .escuro .t3 { color: var(--papel); }
+.areia { background: var(--papel-2); }
+.duas { display: grid; gap: 36px; align-items: center; }
+@media (min-width: 900px) { .duas { grid-template-columns: 1fr 1fr; gap: 64px; } .duas.estreita-foto { grid-template-columns: 1.15fr 1fr; } }
+
+/* fotos */
+.foto { position: relative; margin: 0; border-radius: 16px; overflow: hidden; background: var(--areia); }
+.foto img { width: 100%; height: 100%; object-fit: cover; }
+.foto.tres-dois { aspect-ratio: 3 / 2; }
+
+/* telas do aplicativo */
+.tela { margin: 0; }
+.tela img { border-radius: 14px; border: 1px solid rgba(0,0,0,.08); box-shadow: 0 28px 50px -28px rgba(27,25,20,.45); background: #fff; }
+.escuro .tela img { border-color: rgba(255,255,255,.14); box-shadow: 0 30px 60px -24px rgba(0,0,0,.7); }
+.tela figcaption { font-size: 14px; line-height: 1.45; color: var(--cinza-2); margin-top: 12px; }
+.escuro .tela figcaption { color: #B9B1A1; }
+.demo { display: inline-block; font: 600 11px/1 var(--texto); letter-spacing: .12em; text-transform: uppercase; color: var(--ocre); border: 1px solid currentColor; border-radius: 999px; padding: 5px 9px; margin-right: 8px; vertical-align: middle; }
+.escuro .demo { color: var(--ocre-claro); }
+
+/* frases */
+.frases { display: grid; gap: 18px; margin: 28px 0 22px; }
+.frases blockquote { margin: 0; padding: 2px 0 2px 20px; border-left: 3px solid var(--ocre); font: 600 clamp(1.2rem, 1.9vw, 1.55rem)/1.3 var(--display); letter-spacing: -.01em; color: var(--terra); }
+
+/* alerta vermelho */
+.alerta { background: var(--vermelho-fundo); color: var(--vermelho); border-radius: 14px; padding: 20px 22px; font: 600 clamp(1.15rem, 1.8vw, 1.45rem)/1.3 var(--display); margin: 0 0 22px; }
+@media (max-width: 899px) { .alerta { display: none; } }
+.alerta small { display: block; font: 600 12px/1.2 var(--texto); letter-spacing: .12em; text-transform: uppercase; margin-bottom: 8px; opacity: .8; }
+
+/* cartões */
+.cartoes { display: grid; gap: 14px; margin: 22px 0; }
+.cartao { background: #fff; border: 1px solid var(--linha); border-radius: 14px; padding: 18px 20px; }
+.cartao b { display: block; font: 700 1.05rem/1.3 var(--display); margin-bottom: 4px; }
+.cartao p { margin: 0; font-size: 16px; color: var(--cinza); }
+.escuro .cartao { background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.14); }
+.escuro .cartao b { color: var(--papel); }
+.escuro .cartao p { color: #D9D2C3; }
+@media (min-width: 700px) { .cartoes.lado { grid-template-columns: 1fr 1fr; } }
+
+/* passos */
+.passos { display: grid; gap: 18px; margin: 32px 0 0; padding: 0; list-style: none; }
+.passo { background: #fff; border: 1px solid var(--linha); border-radius: 18px; padding: 26px 24px 24px; display: grid; gap: 14px; align-content: start; }
+.passo .n { font: 800 2.6rem/1 var(--display); color: var(--ocre); letter-spacing: -.03em; }
+.passo .icone { width: 30px; height: 30px; color: var(--verde); }
+.passo b { display: block; font: 700 1.2rem/1.25 var(--display); }
+.passo p { margin: 0; font-size: 16px; color: var(--cinza); }
+.passo-topo { display: flex; justify-content: space-between; align-items: center; }
+@media (min-width: 760px) { .passos { grid-template-columns: repeat(3, 1fr); } }
+
+/* lista com ícone */
+.lista { list-style: none; margin: 22px 0; padding: 0; display: grid; gap: 14px; }
+.lista li { display: grid; grid-template-columns: 26px 1fr; gap: 14px; align-items: start; font-size: 17px; line-height: 1.5; }
+.lista svg { width: 24px; height: 24px; color: var(--ocre-claro); margin-top: 3px; }
+.lista-simples { list-style: none; margin: 16px 0 0; padding: 0; display: grid; gap: 10px; }
+.lista-simples li { padding-left: 22px; position: relative; font-size: 17px; color: var(--cinza); }
+.lista-simples li::before { content: ""; position: absolute; left: 0; top: 11px; width: 10px; height: 2px; background: var(--ocre); }
+.lista-simples.nao li::before { background: var(--cinza-2); }
+
+/* para quem */
+.quem { display: grid; gap: 28px; }
+@media (min-width: 760px) { .quem { grid-template-columns: minmax(0, .8fr) 1fr 1fr; gap: 28px; align-items: start; } }
+@media (max-width: 759px) { .quem-foto { max-width: 420px; } }
+.quem > div { background: #fff; border: 1px solid var(--linha); border-radius: 18px; padding: 26px 24px; }
+
+/* perguntas */
+.faq { border-top: 1px solid var(--linha); margin-top: 8px; }
+.faq details { border-bottom: 1px solid var(--linha); }
+.faq summary { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 18px 0; cursor: pointer; list-style: none; font: 600 1.1rem/1.35 var(--display); }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; font: 500 1.6rem/1 var(--display); color: var(--verde); flex: none; width: 28px; text-align: center; }
+.faq details[open] summary::after { content: "−"; }
+.faq summary:hover { color: var(--verde); }
+.faq summary:focus-visible { outline: 3px solid var(--ocre); outline-offset: 2px; border-radius: 6px; }
+.faq details p { margin: 0 0 20px; max-width: 42em; color: var(--cinza); }
+
+/* chamada final */
+.chamada { position: relative; background: var(--verde-escuro); color: var(--papel); overflow: hidden; }
+.chamada > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 60%; }
+.chamada .veu { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(18,51,42,.55) 0%, rgba(18,51,42,.82) 100%); }
+.chamada .largura { position: relative; z-index: 1; padding-top: clamp(72px, 10vw, 128px); padding-bottom: clamp(72px, 10vw, 128px); }
+.chamada .t2 { color: #fff; max-width: 14em; }
+.chamada ol { margin: 0 0 28px; padding-left: 22px; max-width: 34em; color: #E6E0D2; }
+.chamada ol li { margin-bottom: 8px; }
+.chamada .pequeno { color: #D9D2C3; margin-top: 14px; }
+.chamada .credito { z-index: 1; }
+
+.corpo { position: relative; }
+/* barra do celular */
+.barra { position: sticky; bottom: 0; z-index: 9; background: rgba(243,238,228,.95); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-top: 1px solid var(--linha); padding: 10px var(--gutter) calc(10px + env(safe-area-inset-bottom)); }
+.barra .btn { width: 100%; }
+@media (min-width: 900px) { .barra { display: none; } }
+
+/* rodapé */
+.rodape { background: var(--terra); color: #B9B1A1; font-size: 14px; line-height: 1.55; }
+.rodape .largura { padding-top: 40px; padding-bottom: 40px; display: grid; gap: 18px; }
+.rodape .logo { color: var(--papel); }
+.rodape p { margin: 0; max-width: 60em; }
+.rodape .creditos { font-size: 12px; color: #8A847A; }
+
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+
+/* Marca: três silos que sobem como o gráfico de caixa; o mais alto em ocre. */
+.logo svg { width: 32px; height: 32px; color: var(--verde); }
+.rodape .logo svg { color: var(--papel); --marca-acento: var(--ocre-claro); }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="zap" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></symbol>
+  <symbol id="tulha" viewBox="0 0 64 64"><rect x="7" y="38" width="14" height="18" fill="currentColor"/><polygon points="6,38 14,30.5 22,38" fill="currentColor"/><rect x="25" y="30" width="14" height="26" fill="currentColor"/><polygon points="24,30 32,22.5 40,30" fill="currentColor"/><rect x="43" y="20" width="14" height="36" fill="var(--marca-acento, #C47A2C)"/><polygon points="42,20 50,12.5 58,20" fill="var(--marca-acento, #C47A2C)"/><rect x="5" y="57" width="54" height="2.5" rx="1.25" fill="currentColor"/></symbol>
+  <symbol id="i-cedula" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></symbol>
+  <symbol id="i-banco" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 22h18"/><path d="M6 18v-7"/><path d="M10 18v-7"/><path d="M14 18v-7"/><path d="M18 18v-7"/><path d="M12 2 20 7H4z"/></symbol>
+  <symbol id="i-consultor" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="m16 11 2 2 4-4"/></symbol>
+  <symbol id="i-cadeado" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+  <symbol id="i-olho" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+  <symbol id="i-sair" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="m16 17 5-5-5-5"/><path d="M21 12H9"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="i-calendario" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/></symbol>
+  <symbol id="i-grafico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></symbol>
+  <symbol id="i-sino" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></symbol>
+</svg>
+
+<header class="cabecalho">
+  <div class="largura">
+    <a class="logo" href="#topo" aria-label="Tulhia, início da página"><svg aria-hidden="true"><use href="#tulha"/></svg><span class="marca">Tulhia</span></a>
+    <a class="btn btn-linha" href="https://wa.me/?text=Quero%20conhecer%20a%20Tulhia"><svg aria-hidden="true" focusable="false"><use href="#zap"/></svg>Falar com um consultor</a>
+  </div>
+</header>
+
+<main id="topo">
+
+  <section class="hero" aria-labelledby="titulo">
+    <div class="hero-texto">
+      <p class="sobre">Caixa e dívidas da fazenda, com consultor</p>
+      <h1 id="titulo">Quanto você deve, quando vence e em que mês o caixa aperta.</h1>
+      <p class="grande texto-medida">Custeio, investimento, CPR e renegociação num calendário só, junto com o extrato dos seus bancos. Um consultor confere as contas com você todo mês e avisa antes do aperto.</p>
+      <a class="btn" href="https://wa.me/?text=Quero%20conhecer%20a%20Tulhia"><svg aria-hidden="true" focusable="false"><use href="#zap"/></svg>Falar com um consultor</a>
+      <p class="pequeno">Abre o WhatsApp. A conversa não obriga a nada.</p>
+      <ul class="confianca" aria-label="Três garantias">
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg>Acesso ao banco só para ver</li>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg>Sem digitar extrato</li>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg>Um consultor responsável pela sua fazenda</li>
+      </ul>
+    </div>
+    <figure class="hero-foto">
+      <img src="assets/lp-hero-800.webp" srcset="assets/lp-hero-800.webp 800w, assets/lp-hero-1400.webp 1344w" sizes="(min-width: 900px) 50vw, 100vw" width="800" height="1000" fetchpriority="high" decoding="async" alt="Produtor de boné e camisa social conferindo o celular ao lado do carro, na beira da lavoura de soja, com o complexo de silos ao fundo.">
+    </figure>
+  </section>
+
+  <div class="corpo">
+
+  <section class="numeros" aria-label="Três números">
+    <div class="largura">
+      <div class="n"><b>12 meses</b><span>de projeção do caixa, com cada parcela dentro</span></div>
+      <div class="n"><b>15 dias</b><span>antes do vencimento, a parcela entra no aviso do consultor</span></div>
+      <div class="n"><b>1 página</b><span>de relatório por mês, para imprimir ou mandar ao contador</span></div>
+    </div>
+  </section>
+
+  <section class="secao" aria-labelledby="dor-titulo">
+    <div class="largura duas estreita-foto">
+      <div>
+        <p class="sobre">A conta de cabeça</p>
+        <h2 class="t2" id="dor-titulo">Alguma destas frases é sua?</h2>
+        <div class="frases">
+          <blockquote>Sei mais ou menos quanto devo. O valor certo e o dia de cada parcela, só ligando para o gerente.</blockquote>
+          <blockquote>Tenho custeio num banco, investimento na cooperativa e CPR com a trading.</blockquote>
+          <blockquote>Vendi a safra, paguei o que vencia e o dinheiro sumiu. Não sei dizer para onde foi.</blockquote>
+          <blockquote>Já paguei sistema. Tinha que lançar tudo, ninguém lançava, larguei.</blockquote>
+        </div>
+        <p class="grande texto-medida">Cada banco mostra só o pedaço dele. Com conta em 3&nbsp;nomes e em 4&nbsp;bancos, a conta de cabeça não fecha.</p>
+      </div>
+      <figure class="foto quatro-cinco">
+        <img src="assets/lp-frases-800.webp" srcset="assets/lp-frases-800.webp 800w, assets/lp-frases-1400.webp 1344w" sizes="(min-width: 900px) 42vw, 100vw" width="800" height="1000" loading="lazy" decoding="async" alt="Produtor de chapéu apoiado na cerca, olhando a lavoura, com uma agenda de couro na mão e os silos ao fundo.">
+      </figure>
+    </div>
+  </section>
+
+  <section class="secao areia" aria-labelledby="recebe-titulo">
+    <div class="largura">
+      <p class="sobre">O que você recebe</p>
+      <h2 class="t2" id="recebe-titulo">Quatro coisas que hoje ninguém te entrega juntas</h2>
+      <div class="recebe">
+        <div class="item"><svg aria-hidden="true"><use href="#i-calendario"/></svg><b>Calendário de dívidas</b><p>Todas as parcelas, de todos os credores, no dia em que vencem. Banco, cooperativa, trading, revenda.</p></div>
+        <div class="item"><svg aria-hidden="true"><use href="#i-grafico"/></svg><b>Caixa dos próximos 12 meses</b><p>Com cada parcela dentro e o mês que aperta marcado. Dá para olhar 24 e 36 meses.</p></div>
+        <div class="item"><svg aria-hidden="true" data-fill><use href="#zap"/></svg><b>Resumo do mês no WhatsApp</b><p>Conferido e assinado pelo consultor, com um relatório de uma página em PDF.</p></div>
+        <div class="item"><svg aria-hidden="true"><use href="#i-sino"/></svg><b>Dois avisos antes do aperto</b><p>Atenção ao caixa, quando um mês fica negativo. Parcelas chegando, 15 dias antes do vencimento.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao escuro" aria-labelledby="dividas-titulo">
+    <div class="largura duas">
+      <div>
+        <p class="sobre">Dívidas</p>
+        <h2 class="t2" id="dividas-titulo">Todas as dívidas num calendário só</h2>
+        <p class="grande texto-medida">Cada contrato entra com todas as parcelas, principal e juros, no dia em que vencem. Banco, cooperativa, trading ou revenda. No seu CPF, no de alguém da família ou no CNPJ da empresa.</p>
+        <div class="cartoes">
+          <div class="cartao"><b>Você manda a cédula, o consultor confere</b><p>O aplicativo lê na cédula em PDF o valor, a taxa, o prazo, a carência e as parcelas, e monta o cronograma. O que ele leu com pouca certeza fica marcado com “Confira”. A dívida só entra no calendário e no caixa depois que o consultor confere com você.</p></div>
+          <div class="cartao"><b>Cédula em papel ou escaneada</b><p>O consultor cadastra à mão, contrato por contrato.</p></div>
+        </div>
+      </div>
+      <figure class="tela">
+        <img src="assets/lp-dividas-resumo.webp" srcset="assets/lp-dividas-resumo-372.webp 372w, assets/lp-dividas-resumo.webp 744w, assets/lp-dividas-resumo-1076.webp 1076w" sizes="(min-width: 900px) 520px, calc(100vw - 40px)" width="744" height="462" loading="lazy" decoding="async" alt="Resumo das dívidas no aplicativo: saldo devedor hoje de R$ 5,91 milhões, R$ 3,07 milhões a pagar nesta safra, próximo vencimento em 10/03/2027, de R$ 161 mil, e taxa média de 9,72% ao ano. Dados de demonstração.">
+        <figcaption><span class="demo">Dados de demonstração</span><span class="rs">R$&nbsp;5,91</span> milhões de saldo devedor, <span class="rs">R$&nbsp;3,07</span> milhões a pagar nesta safra e a próxima parcela em 10/03/2027.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="secao" aria-labelledby="aperta-titulo">
+    <div class="largura duas">
+      <figure class="tela">
+        <img src="assets/lp-caixa-12-meses.webp" srcset="assets/lp-caixa-12-meses-372.webp 372w, assets/lp-caixa-12-meses.webp 744w, assets/lp-caixa-12-meses-1076.webp 1076w" sizes="(min-width: 900px) 460px, calc(100vw - 40px)" width="744" height="1118" loading="lazy" decoding="async" alt="Gráfico do caixa dos próximos 12 meses: as barras descem de R$ 2,69 milhões em setembro e ficam negativas de maio a agosto de 2027. No pior mês, junho, faltam R$ 492.859. Dados de demonstração.">
+        <figcaption><span class="demo">Dados de demonstração</span>O caixa fecha setembro com <span class="rs">R$&nbsp;2,69</span> milhões e fica negativo em maio de 2027.</figcaption>
+      </figure>
+      <div>
+        <p class="sobre">Caixa</p>
+        <h2 class="t2" id="aperta-titulo">Você vê o mês que aperta antes de ele chegar</h2>
+        <p class="alerta"><small>O aviso, como aparece no aplicativo</small>Maio de 2027: o caixa fica negativo. No pior mês, junho, faltam <span class="rs">R$&nbsp;492.859</span>.</p>
+        <p class="grande texto-medida">O aplicativo projeta o caixa dos próximos 12 meses, com cada parcela dentro. Se fica negativo, você vê em que mês e quanto falta no pior mês. Dá para olhar 24 e 36 meses também.</p>
+        <div class="cartoes lado">
+          <div class="cartao"><b>Atenção ao caixa</b><p>Quando a projeção mostra um mês negativo.</p></div>
+          <div class="cartao"><b>Parcelas chegando</b><p>O que vence nos próximos 15 dias, o total e o dinheiro nas contas.</p></div>
+        </div>
+        <p class="texto-medida">Os dois avisos chegam no seu WhatsApp, assinados pelo consultor. Com o aviso na mão, você tem mais tempo para negociar prazo, antecipar venda ou buscar crédito.</p>
+        <p class="pequeno texto-medida">É projeção. A receita esperada e o custo de cada mês, você combina com o consultor. Custeio que você ainda não contratou fica fora da conta.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao areia" aria-labelledby="passos-titulo">
+    <div class="largura">
+      <div class="duas passos-topo-grade">
+        <div>
+          <p class="sobre">Como começa</p>
+          <h2 class="t2" id="passos-titulo">3 passos, sem digitar extrato</h2>
+          <p class="grande texto-medida">Caderno e sistema param no dia em que ninguém anota. Aqui o extrato vem do banco, e quem confere é o consultor, contrato por contrato, do seu lado.</p>
+        </div>
+        <figure class="foto tres-dois">
+          <img src="assets/lp-mesa-800.webp" srcset="assets/lp-mesa-800.webp 800w, assets/lp-mesa-1400.webp 1400w" sizes="(min-width: 900px) 45vw, 100vw" width="800" height="533" loading="lazy" decoding="async" alt="Consultor e produtor à mesa do escritório da fazenda, conferindo contratos, com notebook, café e a lavoura pela janela.">
+        </figure>
+      </div>
+      <ol class="passos">
+        <li class="passo"><div class="passo-topo"><span class="n">1</span><svg class="icone" aria-hidden="true"><use href="#i-cedula"/></svg></div><b>Você manda as cédulas</b><p>O consultor confere com você o calendário das dívidas, contrato por contrato.</p></li>
+        <li class="passo"><div class="passo-topo"><span class="n">2</span><svg class="icone" aria-hidden="true"><use href="#i-banco"/></svg></div><b>Você autoriza os bancos</b><p>Cada titular autoriza a própria conta no aplicativo do banco, com o consultor ao lado: você, quem mais da família tem conta e quem assina pela empresa. O acesso é só para ver.</p></li>
+        <li class="passo"><div class="passo-topo"><span class="n">3</span><svg class="icone" aria-hidden="true"><use href="#i-consultor"/></svg></div><b>O consultor acompanha todo mês</b><p>Ele confere o extrato, fecha o mês e manda o resumo no seu WhatsApp. Se o caixa for apertar, avisa antes.</p></li>
+      </ol>
+      <p class="pequeno texto-medida" style="margin-top:22px">O aplicativo é a ferramenta do consultor. Você e quem cuida da papelada da fazenda também podem entrar, no celular ou no computador. Se preferir não abrir, o resumo chega do mesmo jeito.</p>
+    </div>
+  </section>
+
+  <section class="secao" aria-labelledby="consultor-titulo">
+    <div class="largura duas">
+      <figure class="foto tres-dois">
+        <img src="assets/lp-varanda-800.webp" srcset="assets/lp-varanda-800.webp 800w, assets/lp-varanda-1400.webp 1400w" sizes="(min-width: 900px) 50vw, 100vw" width="800" height="533" loading="lazy" decoding="async" alt="Produtor sentado na varanda da sede da fazenda, no fim da tarde, lendo uma mensagem no celular, com o cachorro ao lado.">
+      </figure>
+      <div>
+        <p class="sobre">Todo mês</p>
+        <h2 class="t2" id="consultor-titulo">O consultor confere e manda o resumo</h2>
+        <p class="grande texto-medida">O aplicativo sugere o que é cada movimentação: semente, adubo, diesel, mão de obra, parcela. O que ele não reconhece fica marcado para o consultor decidir. Só o consultor fecha o mês.</p>
+        <p class="texto-medida">Com o mês conferido, o resumo chega assinado no seu WhatsApp, com um relatório de uma página em PDF. Dá para imprimir ou mandar para o contador.</p>
+        <figure class="tela" style="max-width:360px;margin:26px 0 22px">
+          <img src="assets/lp-resumo-whatsapp.webp" srcset="assets/lp-resumo-whatsapp-318.webp 318w, assets/lp-resumo-whatsapp.webp 636w, assets/lp-resumo-whatsapp-948.webp 948w" sizes="(min-width: 400px) 360px, calc(100vw - 40px)" width="636" height="621" loading="lazy" decoding="async" alt="Começo da mensagem de WhatsApp com o resumo de setembro de 2026 e o PDF de 1 página anexado: dinheiro nas contas em 30/09, R$ 2.761.485; entrou R$ 291.500; saiu R$ 124.024. Dados de demonstração.">
+          <figcaption><span class="demo">Dados de demonstração</span>O resumo de setembro, com o PDF junto.</figcaption>
+        </figure>
+        <a class="btn" href="https://wa.me/?text=Quero%20conhecer%20a%20Tulhia"><svg aria-hidden="true" focusable="false"><use href="#zap"/></svg>Quero ver funcionando</a>
+        <p class="pequeno" style="margin-top:12px">O consultor mostra o aplicativo com dados de demonstração.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao escuro" aria-labelledby="seguranca-titulo">
+    <div class="largura duas">
+      <div>
+        <p class="sobre">Segurança</p>
+        <h2 class="t2" id="seguranca-titulo">O acesso ao seu banco é só para ver</h2>
+        <p class="grande texto-medida">O acesso é pelo Open Finance, o sistema regulado pelo Banco Central. Com ele, você compartilha os dados do seu banco com quem você autorizar.</p>
+        <ul class="lista">
+          <li><svg aria-hidden="true"><use href="#i-banco"/></svg><span>Você autoriza dentro do aplicativo ou do site do seu próprio banco. Antes de confirmar, o banco mostra quais dados vai compartilhar, com quem e até quando.</span></li>
+          <li><svg aria-hidden="true"><use href="#i-cadeado"/></svg><span>Com a autorização, ninguém paga, transfere nem contrata nada em seu nome. O aplicativo usa o extrato, o saldo e a fatura do cartão.</span></li>
+          <li><svg aria-hidden="true"><use href="#i-sair"/></svg><span>Você cancela quando quiser, no aplicativo do seu banco, e o extrato para de chegar.</span></li>
+        </ul>
+      </div>
+      <div class="cartoes">
+        <div class="cartao"><b>Vocês vão ver a minha conta?</b><p>Sim. O seu consultor e a nossa equipe veem extrato, saldo e fatura das contas que você autorizou: é assim que eles conferem o seu mês. A empresa que faz a ligação com o banco também recebe esses dados. Outro produtor não enxerga nada seu.</p></div>
+        <div class="cartao"><b>Ninguém pede a sua senha</b><p>Antes de você autorizar, o consultor explica cada tela e avisa o nome da empresa que vai aparecer no banco recebendo os dados. Ninguém da nossa equipe pede a senha do seu banco nem o código que chega no seu celular, por mensagem ou por ligação.</p></div>
+        <div class="cartao"><b>Transferência entre contas da família não vira receita</b><p>O extrato chega de cada banco que a família autorizou, do Pix do diesel ao débito da parcela do custeio. Transferência entre as contas não vira receita nem despesa, e o gasto da casa fica fora do custo da fazenda.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" aria-labelledby="quem-titulo">
+    <div class="largura">
+      <p class="sobre">Antes de chamar</p>
+      <h2 class="t2" id="quem-titulo">Para quem é, e para quem não é</h2>
+      <div class="quem">
+        <figure class="foto quatro-cinco quem-foto">
+          <img src="assets/lp-silos-retrato-800.webp" srcset="assets/lp-silos-retrato-800.webp 800w, assets/lp-silos-retrato-1400.webp 1344w" sizes="(min-width: 760px) 30vw, 100vw" width="800" height="1000" loading="lazy" decoding="async" alt="Produtor de chapéu e braços cruzados em frente ao complexo de silos da fazenda, com um caminhão de grãos ao fundo.">
+        </figure>
+        <div>
+          <h3 class="t3">É para quem</h3>
+          <ul class="lista-simples">
+            <li>Toca a fazenda com crédito rural: custeio, investimento, CPR, renegociação.</li>
+            <li>Tem conta em mais de um banco, ou em mais de um nome da família.</li>
+            <li>Quer saber o mês que aperta antes de ele chegar, sem lançar extrato.</li>
+            <li>Grão, gado, café, leite: o caixa fica separado por atividade.</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="t3">Não é para quem</h3>
+          <ul class="lista-simples nao">
+            <li>Só quer anotar gasto. Para isso existe coisa mais simples.</li>
+            <li>Procura sistema de lavoura, estoque, nota fiscal ou imposto.</li>
+            <li>Procura empréstimo. A <span class="marca">Tulhia</span> não é banco e não empresta dinheiro.</li>
+            <li>Quer só o aplicativo. Hoje a <span class="marca">Tulhia</span> vem sempre com consultor.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao areia" aria-labelledby="perguntas-titulo">
+    <div class="largura">
+      <p class="sobre">Perguntas</p>
+      <h2 class="t2" id="perguntas-titulo">Antes da primeira conversa</h2>
+      <div class="faq">
+        <details><summary>Estou no meio de uma renegociação. Serve para mim?</summary><p>Serve. A renegociação entra como um contrato, com a carência, os juros da carência e cada parcela no seu dia. A partir daí ela conta no caixa. A conversa com o banco continua sua, com o número na mão.</p></details>
+        <details><summary>É só para quem está com parcela atrasada?</summary><p>Não. É para quem está em dia e quer continuar assim. E para quem já atrasou parcela e precisa do número certo para conversar com o banco.</p></details>
+        <details><summary>Meu banco entra?</summary><p>Depende do banco. Na primeira conversa o consultor olha os seus, um por um. Conta de banco que não entra fica fora do caixa. Dívida com trading, revenda ou banco de máquina entra pelo contrato, mesmo sem extrato.</p></details>
+        <details><summary>Não sei mexer em aplicativo.</summary><p>No dia a dia, não precisa. O resumo do mês e os avisos chegam no seu WhatsApp, com um relatório de uma página. Para autorizar a conta, o consultor faz o passo a passo junto com cada titular, que confirma no aplicativo do próprio banco.</p></details>
+        <details><summary>Quem é o consultor?</summary><p>Uma pessoa da nossa equipe que acompanha a sua fazenda mês a mês. Cada fazenda tem um consultor responsável: ele confere e fecha o seu mês, e assina o resumo. Na primeira conversa você já fala com um consultor.</p></details>
+        <details><summary>Meu contador já faz isso.</summary><p>O contador cuida do imposto e do que já passou. O consultor olha para frente: o que vence e em que mês o caixa aperta. Um não tira o lugar do outro, e o relatório do mês pode ir para o contador.</p></details>
+        <details><summary>Quanto custa?</summary><p>A <span class="marca">Tulhia</span> é um acompanhamento com consultor, com o aplicativo junto. O valor você fica sabendo na primeira conversa, antes de assumir qualquer compromisso.</p></details>
+        <details><summary>E se eu quiser sair?</summary><p>A autorização do banco é sua. Você cancela no aplicativo do banco quando quiser, e o extrato para de chegar. As condições do contrato você recebe por escrito antes de assinar.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="chamada" aria-labelledby="chamada-titulo">
+    <img src="assets/lp-silos-1200.webp" srcset="assets/lp-silos-1200.webp 1200w, assets/lp-silos-2000.webp 2000w" sizes="100vw" width="1200" height="509" loading="lazy" decoding="async" alt="">
+    <div class="veu" aria-hidden="true"></div>
+    <div class="largura">
+      <p class="sobre">Primeira conversa</p>
+      <h2 class="t2" id="chamada-titulo">Converse com um consultor antes de decidir</h2>
+      <ol>
+        <li>Você conta quais contratos tem, com quem e quando vencem, do jeito que lembra.</li>
+        <li>O consultor mostra como a <span class="marca">Tulhia</span> funciona, com dados de demonstração.</li>
+        <li>Você sai sabendo o que entra no seu caso, quanto custa e qual é o primeiro passo.</li>
+      </ol>
+      <a class="btn btn-claro" href="https://wa.me/?text=Quero%20conhecer%20a%20Tulhia"><svg aria-hidden="true" focusable="false"><use href="#zap"/></svg>Falar com um consultor</a>
+      <p class="pequeno">Abre o WhatsApp. A conversa não obriga a nada.</p>
+    </div>
+  </section>
+
+  <div class="barra">
+    <a class="btn" href="https://wa.me/?text=Quero%20conhecer%20a%20Tulhia"><svg aria-hidden="true" focusable="false"><use href="#zap"/></svg>Falar com um consultor</a>
+  </div>
+
+  </div>
+
+</main>
+
+<footer class="rodape">
+  <div class="largura">
+    <p class="logo"><svg aria-hidden="true"><use href="#tulha"/></svg><span class="marca">Tulhia</span></p>
+    <p><span class="marca">Tulhia</span>. Caixa e dívidas da fazenda, com consultor. A <span class="marca">Tulhia</span> não é banco e não empresta dinheiro.</p>
+    <p>As telas desta página usam dados de demonstração. Pessoas, fazendas e valores são fictícios.</p>
+    <p>Privacidade (LGPD): esta página não tem formulário e não registra o que você faz nela. Os botões só abrem o WhatsApp.</p>
+    <p>Produto em pré-lançamento. Prévia para aprovação.</p>
+    <p class="creditos">Fotos ilustrativas.</p>
+  </div>
+</footer>
+
+</body>
+</html>

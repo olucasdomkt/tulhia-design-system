@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Tulhia, design system</title>
+<!--
+  Versão estática de "Tulhia Design System.dc.html" (etapa 2, direção 1b Livro-caixa),
+  exportado do projeto do Claude Design https://claude.ai/design/p/827ef3a2-3008-4b77-90d0-0403a5b31f52 em 05/10/2026.
+  Mudou só o invólucro: sem o runtime do Claude Design, fontes locais (fontes/) no lugar do Google Fonts
+  e o hover dos botões em CSS. O conteúdo é o mesmo do arquivo exportado.
+-->
+<style>
+@font-face { font-family: "Schibsted Grotesk"; src: url("fontes/lp-schibsted.woff2") format("woff2"); font-weight: 400 800; font-style: normal; font-display: swap; }
+@font-face { font-family: "Spline Sans Mono"; src: url("fontes/lp-spline-mono.woff2") format("woff2"); font-weight: 400 600; font-style: normal; font-display: swap; }
+body { margin: 0; background: #F5F6F2; color: #172238; font: 400 17px/1.55 "Schibsted Grotesk", system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+* { box-sizing: border-box; }
+img { display: block; max-width: 100%; }
+a { color: #172238; text-underline-offset: 3px; } a:hover { color: #2A3A5C; }
+summary::-webkit-details-marker { display: none; }
+.ds-hover-1:hover { background: #2A3A5C !important; color: #FFFFFF !important; }
+.ds-hover-2:hover { background: #172238 !important; color: #FFFFFF !important; }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position: absolute;" aria-hidden="true">
+  <symbol id="tulhia" viewBox="0 0 64 64"><rect width="64" height="64" fill="#172238"></rect><rect x="10" y="14" width="44" height="6" fill="#F5F6F2"></rect><rect x="23" y="20" width="6" height="34" fill="#F5F6F2"></rect><rect x="35" y="38" width="17" height="12" fill="#F2D43D"></rect></symbol>
+  <symbol id="tulhia-claro" viewBox="0 0 64 64"><rect width="64" height="64" fill="#F5F6F2"></rect><rect x="10" y="14" width="44" height="6" fill="#172238"></rect><rect x="23" y="20" width="6" height="34" fill="#172238"></rect><rect x="35" y="38" width="17" height="12" fill="#F2D43D"></rect></symbol>
+  <symbol id="zap" viewBox="0 0 24 24"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"></path></symbol>
+  <symbol id="check" viewBox="0 0 24 24"><path d="M6 12.5 10 16.5 18 8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"></path></symbol>
+</svg>
+
+<div style="max-width: 1200px; margin: 0 auto; padding: 56px clamp(20px, 4vw, 48px) 120px; display: flex; flex-direction: column; gap: 88px;">
+
+  <header style="display: flex; flex-direction: column; gap: 18px; border-top: 2px solid #172238; padding-top: 14px;">
+    <p style="margin: 0; font: 500 13px/1.3 'Spline Sans Mono', monospace; color: #565E6B;">Etapa 2 · Design system · Direção 1b, Livro-caixa · v1.0</p>
+    <div style="display: flex; align-items: center; gap: 18px; flex-wrap: wrap;"><svg width="72" height="72" aria-hidden="true"><use href="#tulhia"></use></svg><h1 style="margin: 0; font: 800 clamp(44px, 2rem + 3vw, 80px)/1 'Schibsted Grotesk', sans-serif; letter-spacing: -.045em;">Tulhia</h1></div>
+    <p style="margin: 0; max-width: 40em; font-size: 20px; line-height: 1.5; color: #3B4352; text-wrap: pretty;">A Tulhia funciona como o livro-caixa da fazenda, que alguém de confiança mantém em dia. Os números vêm antes do texto e ficam em coluna, separados por linhas de pauta. O amarelo do marca-texto aparece uma vez por tela, no mês que aperta ou no número que importa.</p>
+    <nav aria-label="Seções" style="display: flex; flex-wrap: wrap; gap: 8px 20px; font: 500 14px/1.4 'Spline Sans Mono', monospace;">
+      <a href="#marca">01 Marca</a><a href="#cor">02 Cor</a><a href="#tipo">03 Tipografia</a><a href="#espaco">04 Espaço e raio</a><a href="#comp">05 Componentes</a><a href="#regras">06 Regras</a>
+    </nav>
+  </header>
+
+  <!-- 01 MARCA -->
+  <section id="marca" style="display: flex; flex-direction: column; gap: 28px;">
+    <p style="margin: 0; display: flex; gap: 14px; border-top: 2px solid #172238; padding-top: 12px; font: 500 13px/1.3 'Spline Sans Mono', monospace; color: #565E6B;"><span style="color: #172238; font-weight: 600;">01</span><span>Marca</span></p>
+    <h2 style="margin: 0; font: 800 clamp(30px, 1.2rem + 1.7vw, 44px)/1.08 'Schibsted Grotesk', sans-serif; letter-spacing: -.03em;">Símbolo, nome e usos</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 24px;">
+      <div style="background: #FFFFFF; border: 1px solid #D9DDE3; padding: 28px; display: flex; flex-direction: column; gap: 18px;">
+        <svg viewBox="0 0 64 64" width="100%" style="max-width: 260px; align-self: center;" aria-label="Construção do símbolo">
+          <rect width="64" height="64" fill="#172238"></rect>
+          <g stroke="#3B4C70" stroke-width=".25"><line x1="0" y1="14" x2="64" y2="14"></line><line x1="0" y1="20" x2="64" y2="20"></line><line x1="0" y1="38" x2="64" y2="38"></line><line x1="0" y1="50" x2="64" y2="50"></line><line x1="10" y1="0" x2="10" y2="64"></line><line x1="54" y1="0" x2="54" y2="64"></line><line x1="23" y1="0" x2="23" y2="64"></line><line x1="29" y1="0" x2="29" y2="64"></line></g>
+          <rect x="10" y="14" width="44" height="6" fill="#F5F6F2"></rect><rect x="23" y="20" width="6" height="34" fill="#F5F6F2"></rect><rect x="35" y="38" width="17" height="12" fill="#F2D43D"></rect>
+        </svg>
+        <p style="margin: 0; font-size: 16px; color: #3B4352;">Pauta de 64 unidades. A linha do cabeçalho e a da coluna formam o T, e a casa amarela é o mês marcado. A casa fica na coluna dos valores, embaixo e à direita, onde está o último número da conta.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+        <div style="background: #F5F6F2; border: 1px solid #D9DDE3; display: grid; place-items: center; padding: 24px; min-height: 150px;"><span style="display: flex; align-items: center; gap: 10px;"><svg width="34" height="34" aria-hidden="true"><use href="#tulhia"></use></svg><span style="font: 800 30px/1 'Schibsted Grotesk', sans-serif; letter-spacing: -.045em;">Tulhia</span></span></div>
+        <div style="background: #172238; display: grid; place-items: center; padding: 24px; min-height: 150px;"><span style="display: flex; align-items: center; gap: 10px; color: #F5F6F2;"><svg width="34" height="34" aria-hidden="true"><use href="#tulhia-claro"></use></svg><span style="font: 800 30px/1 'Schibsted Grotesk', sans-serif; letter-spacing: -.045em;">Tulhia</span></span></div>
+        <div style="background: #FFFFFF; border: 1px solid #D9DDE3; display: flex; flex-direction: column; justify-content: center; gap: 8px; padding: 20px; grid-column: span 2;">
+          <span style="font: 800 44px/1 'Schibsted Grotesk', sans-serif; letter-spacing: -.045em;">Tulhia</span>
+          <span style="font: 500 13px/1.3 'Spline Sans Mono', monospace; color: #565E6B;">Nome em Schibsted Grotesk 800, entreletra −4,5%. Assinatura: caixa e dívidas da fazenda, com consultor.</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 4px; font-size: 15px; color: #3B4352; grid-column: span 2;">
+          <span><b style="color: #172238;">Tamanho mínimo:</b> 16 px o símbolo, 72 px o conjunto.</span>
+          <span><b style="color: #172238;">Respiro:</b> 1/4 do lado do símbolo em volta.</span>
+          <span><b style="color: #172238;">Não fazer:</b> girar, arredondar, trocar a cor da casa, pôr sobre foto sem a caixa sólida.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 COR -->
+  <section id="cor" style="display: flex; flex-direction: column; gap: 28px;">
+    <p style="margin: 0; display: flex; gap: 14px; border-top: 2px solid #172238; padding-top: 12px; font: 500 13px/1.3 'Spline Sans Mono', monospace; color: #565E6B;"><span style="color: #172238; font-weight: 600;">02</span><span>Cor</span></p>
+    <h2 style="margin: 0; font: 800 clamp(30px, 1.2rem + 1.7vw, 44px)/1.08 'Schibsted Grotesk', sans-serif; letter-spacing: -.03em;">Tokens de cor e o papel de cada um</h2>
+    <p style="margin: 0; max-width: 40em; color: #3B4352;">Tinta e almaço fazem quase tudo. O marca-texto aparece uma vez por tela. O vermelho só marca caixa negativo, e sempre vem com texto ou sinal de menos ao lado, porque a cor sozinha não basta.</p>
+    <div style="border-top: 2px solid #172238;">
+      <div style="display: grid; grid-template-columns: 56px minmax(0, 1.1fr) minmax(0, .8fr) minmax(0, 2fr); gap: 16px; align-items: center; padding: 10px 0; border-bottom: 1px solid #D9DDE3; font: 500 12px/1.2 'Spline Sans Mono', monospace; color: #565E6B;"><span></span><span>Token</span><span>Valor</span><span>Papel</span></div>
+      <div style="display: grid; grid-template-columns: 56px minmax(0, 1.1fr) minmax(0, .8fr) minmax(0, 2fr); gap: 16px; align-items: center; padding: 12px 0; border-bottom: 1px solid #D9DDE3;"><span style="width: 56px; height: 40px; background: #172238;"></span><b>tinta</b><span style="font-family: 'Spline Sans Mono', monospace; font-size: 15px;">#172238</span><span style="font-size: 16px; color: #3B4352;">Texto principal, botão primário, seções escuras, regras de 2 px.</span></div>
+      <div style="display: grid; grid-template-columns: 56px minmax(0, 1.1fr) minmax(0, .8fr) minmax(0, 2fr); gap: 16px; align-items: center; padding: 12px 0; border-bottom: 1px solid #D9DDE3;"><span style="width: 56px; height: 40px; background: #2A3A5C;"></span><b>tinta-hover</b><span style="font-family: 'Spline Sans Mono', monospace; font-size: 15px;">#2A3A5C</span><span style="font-size: 16px; color: #3B4352;">Hover do botão primário.</span></div>
+      <div style="display: grid; grid-template-columns: 56px minmax(0, 1.1fr) minmax(0, .8fr) minmax(0, 2fr); gap: 16px; align-items: center; padding: 12px 0; border-bottom: 1px solid #D9DDE3;"><span style="width: 56px; height: 40px; background: #1F2C47;"></span><b>tinta-cartão</b><span style="font-family: 'Spline Sans Mono', monospace; font-size: 15px;">#1F2C47</span><span style="font-size: 16px; color: #3B4352;">Fundo de cartão dentro da seção escura. Borda #2E3D5C.</span></div>
+      <div style="display: grid; grid-template-columns: 56px minmax(0, 1.1fr) minmax(0, .8fr) minmax(0, 2fr); gap: 16px; align-items: center; padding: 12px 0; border-bottom: 1px solid #D9DDE3;"><span style="width: 56px; height: 40px; background: #0F1729;"></span><b>tinta-fundo</b><span style="font-family: 'Spline Sans Mono', monospace; font-size: 15px;">#0F1729</span><span style="font-size: 16px; color: #3B4352;">Rodapé.</span></div>
+      <div style="display: grid; grid-template-columns: 56px minmax(0, 1.1fr) minmax(0, .8fr) minmax(0, 2fr); gap: 16px; align-items: center; padding: 12px 0; border-bottom: 1px solid #D9DDE3;"><span style="width: 56px; height: 40px; background: #F5F6F2; border: 1px solid #D9DDE3;"></span><b>almaço</b><span style="font-family: 'Spline Sans Mono', monospace; font-size: 15px;">#F5F6F2</span><span style="font-size: 16px; color: #3B4352;">Fundo da página, texto sobre tinta, botão claro.</span></div>
+      <div style="display: grid; grid-template-columns: 56px minmax(0, 1.1fr) minmax(0, .8fr) minmax(0, 2fr); gap: 16px; align-items: center; padding: 12px 0; border-bottom: 1px solid #D9DDE3;"><span style="width: 56px; height: 40px; background: #ECEEE8;"></span><b>almaço-2</b><span style="font-family: 'Spline Sans Mono', monospace; font-size: 15px;">#ECEEE8</span><span style="font-size: 16px; color: #3B4352;">Seção alternada clara.</span></div>
+      <div style="display: grid; grid-template-columns: 56px minmax(0, 1.1fr) minmax(0, .8fr) minmax(0, 2fr); gap: 16px; align-items: center; padding: 12px 0; border-bottom: 1px solid #D9DDE3;"><span style="width: 56px; height: 40px; background: #FFFFFF; border: 1px solid #D9DDE3;"></span><b>folha</b><span style="font-family: 'Spline Sans Mono', monospace; font-size: 15px;">#FFFFFF</span><span style="font-size: 16px; color: #3B4352;">Cartão, moldura de tela, aviso.</span></div>
+      <div style="display: grid; grid-template-columns: 56px minmax(0, 1.1fr) minmax(0, .8fr) minmax(0, 2fr); gap: 16px; align-items: center; padding: 12px 0; border-bottom: 1px solid #D9DDE3;"><span style="width: 56px; height: 40px; background: #D9DDE3;"></span><b>pauta</b><span style="font-family: 'Spline Sans Mono', monospace; font-size: 15px;">#D9DDE3</span><span style="font-size: 16px; color: #3B4352;">Linha de 1 px entre linhas da conta. Variante forte #C4CAD3 sobre almaço-2.</span></div>
+      <div style="display: grid; grid-template-columns: 56px minmax(0, 1.1fr) minmax(0, .8fr) minmax(0, 2fr); gap: 16px; align-items: center; padding: 12px 0; border-bottom: 1px solid #D9DDE3;"><span style="width: 56px; height: 40px; background: #3B4352;"></span><b>grafite-texto</b><span style="font-family: 'Spline Sans Mono', monospace; font-size: 15px;">#3B4352</span><span style="font-size: 16px; color: #3B4352;">Parágrafo de apoio (lead, descrição). 9,9:1 sobre almaço.</span></div>
+      <div style="display: grid; grid-template-columns: 56px minmax(0, 1.1fr) minmax(0, .8fr) minmax(0, 2fr); gap: 16px; align-items: center; padding: 12px 0; border-bottom: 1px solid #D9DDE3;"><span style="width: 56px; height: 40px; background: #565E6B;"></span><b>grafite</b><span style="font-family: 'Spline Sans Mono', monospace; font-size: 15px;">#565E6B</span><span style="font-size: 16px; color: #3B4352;">Rótulos, legendas, notas. 6,2:1 sobre almaço.</span></div>
+      <div style="display: grid; grid-template-columns: 56px minmax(0, 1.1fr) minmax(0, .8fr) minmax(0, 2fr); gap: 16px; align-items: center; padding: 12px 0; border-bottom: 1px solid #D9DDE3;"><span style="width: 56px; height: 40px; background: #B8C0CC;"></span><b>névoa</b><span style="font-family: 'Spline Sans Mono', monospace; font-size: 15px;">#B8C0CC</span><span style="font-size: 16px; color: #3B4352;">Texto de apoio sobre tinta. 8,9:1.</span></div>
+      <div style="display: grid; grid-template-columns: 56px minmax(0, 1.1fr) minmax(0, .8fr) minmax(0, 2fr); gap: 16px; align-items: center; padding: 12px 0; border-bottom: 1px solid #D9DDE3;"><span style="width: 56px; height: 40px; background: #F2D43D;"></span><b>marca-texto</b><span style="font-family: 'Spline Sans Mono', monospace; font-size: 15px;">#F2D43D</span><span style="font-size: 16px; color: #3B4352;">O acento. Uma vez por tela, atrás do mês que aperta ou do número que importa. Texto sempre em tinta por cima. Também é o anel de foco.</span></div>
+      <div style="display: grid; grid-template-columns: 56px minmax(0, 1.1fr) minmax(0, .8fr) minmax(0, 2fr); gap: 16px; align-items: center; padding: 12px 0; border-bottom: 2px solid #172238;"><span style="width: 56px; height: 40px; background: #B3261E;"></span><b>vermelho</b><span style="font-family: 'Spline Sans Mono', monospace; font-size: 15px;">#B3261E</span><span style="font-size: 16px; color: #3B4352;">Caixa negativo e aviso, sempre com texto. Não é cor de botão.</span></div>
+    </div>
+  </section>
+
+  <!-- 03 TIPO -->
+  <section id="tipo" style="display: flex; flex-direction: column; gap: 28px;">
+    <p style="margin: 0; display: flex; gap: 14px; border-top: 2px solid #172238; padding-top: 12px; font: 500 13px/1.3 'Spline Sans Mono', monospace; color: #565E6B;"><span style="color: #172238; font-weight: 600;">03</span><span>Tipografia</span></p>
+    <h2 style="margin: 0; font: 800 clamp(30px, 1.2rem + 1.7vw, 44px)/1.08 'Schibsted Grotesk', sans-serif; letter-spacing: -.03em;">Uma letra para ler, uma para contar</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 24px;">
+      <div style="background: #FFFFFF; border: 1px solid #D9DDE3; padding: 24px; display: flex; flex-direction: column; gap: 8px;"><span style="font: 800 72px/1 'Schibsted Grotesk', sans-serif; letter-spacing: -.04em;">Aa</span><b>Schibsted Grotesk</b><span style="font-size: 16px; color: #3B4352;">400 a 800. Títulos, texto e botões. É uma letra de jornal, clara no celular, e pouca gente usa.</span></div>
+      <div style="background: #FFFFFF; border: 1px solid #D9DDE3; padding: 24px; display: flex; flex-direction: column; gap: 8px;"><span style="font: 500 64px/1.1 'Spline Sans Mono', monospace; letter-spacing: -.03em;">5,91</span><b>Spline Sans Mono</b><span style="font-size: 16px; color: #3B4352;">400 a 600. Valores, datas, rótulos e números de seção. Os algarismos têm a mesma largura e alinham em coluna.</span></div>
+    </div>
+    <div style="border-top: 2px solid #172238;">
+      <div style="display: grid; grid-template-columns: minmax(0, 150px) minmax(0, 1fr); gap: 20px; align-items: baseline; padding: 18px 0; border-bottom: 1px solid #D9DDE3;"><span style="font: 500 13px/1.4 'Spline Sans Mono', monospace; color: #565E6B;">display<br>37 → 66 / 1,03<br>800 · −3,5%</span><span style="font: 800 clamp(37px, 1.6rem + 2.6vw, 66px)/1.03 'Schibsted Grotesk', sans-serif; letter-spacing: -.035em;">Quanto você deve</span></div>
+      <div style="display: grid; grid-template-columns: minmax(0, 150px) minmax(0, 1fr); gap: 20px; align-items: baseline; padding: 18px 0; border-bottom: 1px solid #D9DDE3;"><span style="font: 500 13px/1.4 'Spline Sans Mono', monospace; color: #565E6B;">h2<br>30 → 46 / 1,08<br>800 · −3%</span><span style="font: 800 clamp(30px, 1.2rem + 1.7vw, 46px)/1.08 'Schibsted Grotesk', sans-serif; letter-spacing: -.03em;">Todas as dívidas num calendário só</span></div>
+      <div style="display: grid; grid-template-columns: minmax(0, 150px) minmax(0, 1fr); gap: 20px; align-items: baseline; padding: 18px 0; border-bottom: 1px solid #D9DDE3;"><span style="font: 500 13px/1.4 'Spline Sans Mono', monospace; color: #565E6B;">h3<br>21 → 22 / 1,25<br>700 · −1,5%</span><span style="font: 700 22px/1.25 'Schibsted Grotesk', sans-serif; letter-spacing: -.015em;">Calendário de dívidas</span></div>
+      <div style="display: grid; grid-template-columns: minmax(0, 150px) minmax(0, 1fr); gap: 20px; align-items: baseline; padding: 18px 0; border-bottom: 1px solid #D9DDE3;"><span style="font: 500 13px/1.4 'Spline Sans Mono', monospace; color: #565E6B;">citação<br>19 → 23 / 1,35<br>600</span><span style="font: 600 clamp(19px, 1rem + .5vw, 23px)/1.35 'Schibsted Grotesk', sans-serif;">Tenho custeio num banco, investimento na cooperativa e CPR com a trading.</span></div>
+      <div style="display: grid; grid-template-columns: minmax(0, 150px) minmax(0, 1fr); gap: 20px; align-items: baseline; padding: 18px 0; border-bottom: 1px solid #D9DDE3;"><span style="font: 500 13px/1.4 'Spline Sans Mono', monospace; color: #565E6B;">lead<br>18 → 21 / 1,5<br>400</span><span style="font-size: clamp(18px, 1rem + .35vw, 21px); line-height: 1.5; color: #3B4352;">Um consultor confere as contas com você todo mês e avisa antes do aperto.</span></div>
+      <div style="display: grid; grid-template-columns: minmax(0, 150px) minmax(0, 1fr); gap: 20px; align-items: baseline; padding: 18px 0; border-bottom: 1px solid #D9DDE3;"><span style="font: 500 13px/1.4 'Spline Sans Mono', monospace; color: #565E6B;">corpo<br>17 a 18 / 1,55<br>400 · mín. 16</span><span style="font-size: 17px; line-height: 1.55;">Cada contrato entra com todas as parcelas, principal e juros, no dia em que vencem.</span></div>
+      <div style="display: grid; grid-template-columns: minmax(0, 150px) minmax(0, 1fr); gap: 20px; align-items: baseline; padding: 18px 0; border-bottom: 1px solid #D9DDE3;"><span style="font: 500 13px/1.4 'Spline Sans Mono', monospace; color: #565E6B;">valor<br>21 / 1 · mono 600</span><span style="font: 600 21px/1 'Spline Sans Mono', monospace; letter-spacing: -.02em;">R$ 5,91 mi · 10/03/2027</span></div>
+      <div style="display: grid; grid-template-columns: minmax(0, 150px) minmax(0, 1fr); gap: 20px; align-items: baseline; padding: 18px 0; border-bottom: 2px solid #172238;"><span style="font: 500 13px/1.4 'Spline Sans Mono', monospace; color: #565E6B;">rótulo<br>12 a 13 · mono 500</span><span style="font: 500 13px/1.3 'Spline Sans Mono', monospace; color: #565E6B;">03 · Dívidas · Dados de demonstração</span></div>
+    </div>
+    <p style="margin: 0; font-size: 16px; color: #565E6B;">Rótulos em mono de 12 a 13 px servem só para nomear coisas. Texto que precisa ser lido nunca fica abaixo de 16 px.</p>
+  </section>
+
+  <!-- 04 ESPAÇO -->
+  <section id="espaco" style="display: flex; flex-direction: column; gap: 28px;">
+    <p style="margin: 0; display: flex; gap: 14px; border-top: 2px solid #172238; padding-top: 12px; font: 500 13px/1.3 'Spline Sans Mono', monospace; color: #565E6B;"><span style="color: #172238; font-weight: 600;">04</span><span>Espaço e raio</span></p>
+    <h2 style="margin: 0; font: 800 clamp(30px, 1.2rem + 1.7vw, 44px)/1.08 'Schibsted Grotesk', sans-serif; letter-spacing: -.03em;">Espaçamento, raios e regras</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 40px;">
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <div style="display: grid; grid-template-columns: 60px 1fr 120px; gap: 12px; align-items: center; font: 500 13px/1 'Spline Sans Mono', monospace;"><span>esp-1</span><span style="width: 4px; height: 14px; background: #172238;"></span><span style="color: #565E6B;">4</span></div>
+        <div style="display: grid; grid-template-columns: 60px 1fr 120px; gap: 12px; align-items: center; font: 500 13px/1 'Spline Sans Mono', monospace;"><span>esp-2</span><span style="width: 8px; height: 14px; background: #172238;"></span><span style="color: #565E6B;">8</span></div>
+        <div style="display: grid; grid-template-columns: 60px 1fr 120px; gap: 12px; align-items: center; font: 500 13px/1 'Spline Sans Mono', monospace;"><span>esp-3</span><span style="width: 12px; height: 14px; background: #172238;"></span><span style="color: #565E6B;">12</span></div>
+        <div style="display: grid; grid-template-columns: 60px 1fr 120px; gap: 12px; align-items: center; font: 500 13px/1 'Spline Sans Mono', monospace;"><span>esp-4</span><span style="width: 16px; height: 14px; background: #172238;"></span><span style="color: #565E6B;">16</span></div>
+        <div style="display: grid; grid-template-columns: 60px 1fr 120px; gap: 12px; align-items: center; font: 500 13px/1 'Spline Sans Mono', monospace;"><span>esp-5</span><span style="width: 20px; height: 14px; background: #172238;"></span><span style="color: #565E6B;">20 · margem celular</span></div>
+        <div style="display: grid; grid-template-columns: 60px 1fr 120px; gap: 12px; align-items: center; font: 500 13px/1 'Spline Sans Mono', monospace;"><span>esp-6</span><span style="width: 24px; height: 14px; background: #172238;"></span><span style="color: #565E6B;">24</span></div>
+        <div style="display: grid; grid-template-columns: 60px 1fr 120px; gap: 12px; align-items: center; font: 500 13px/1 'Spline Sans Mono', monospace;"><span>esp-8</span><span style="width: 32px; height: 14px; background: #172238;"></span><span style="color: #565E6B;">32</span></div>
+        <div style="display: grid; grid-template-columns: 60px 1fr 120px; gap: 12px; align-items: center; font: 500 13px/1 'Spline Sans Mono', monospace;"><span>esp-12</span><span style="width: 48px; height: 14px; background: #172238;"></span><span style="color: #565E6B;">48 · margem desktop</span></div>
+        <div style="display: grid; grid-template-columns: 60px 1fr 120px; gap: 12px; align-items: center; font: 500 13px/1 'Spline Sans Mono', monospace;"><span>esp-20</span><span style="width: 80px; height: 14px; background: #172238;"></span><span style="color: #565E6B;">80 · entre colunas</span></div>
+        <div style="display: grid; grid-template-columns: 60px 1fr 120px; gap: 12px; align-items: center; font: 500 13px/1 'Spline Sans Mono', monospace;"><span>seção</span><span style="width: 112px; height: 14px; background: #172238;"></span><span style="color: #565E6B;">56 → 112</span></div>
+        <p style="margin: 8px 0 0; font-size: 16px; color: #3B4352;">Largura máxima de 1200 px. Margem lateral clamp(20, 4vw, 48). Texto corrido com até 32 em de largura.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;">
+          <div style="display: flex; flex-direction: column; gap: 8px;"><span style="height: 72px; background: #FFFFFF; border: 1.5px solid #172238; border-radius: 0;"></span><span style="font: 500 13px/1.3 'Spline Sans Mono', monospace;">raio-0<br><span style="color: #565E6B;">fotos, seções, símbolo</span></span></div>
+          <div style="display: flex; flex-direction: column; gap: 8px;"><span style="height: 72px; background: #FFFFFF; border: 1.5px solid #172238; border-radius: 2px;"></span><span style="font: 500 13px/1.3 'Spline Sans Mono', monospace;">raio-2<br><span style="color: #565E6B;">cartões, molduras</span></span></div>
+          <div style="display: flex; flex-direction: column; gap: 8px;"><span style="height: 72px; background: #FFFFFF; border: 1.5px solid #172238; border-radius: 4px;"></span><span style="font: 500 13px/1.3 'Spline Sans Mono', monospace;">raio-4<br><span style="color: #565E6B;">botões</span></span></div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 14px; margin-top: 12px;">
+          <div style="display: grid; grid-template-columns: 120px 1fr; gap: 12px; align-items: center;"><span style="height: 2px; background: #172238;"></span><span style="font-size: 16px;"><b>regra-forte</b> 2 px tinta. Abre seção, fecha a conta.</span></div>
+          <div style="display: grid; grid-template-columns: 120px 1fr; gap: 12px; align-items: center;"><span style="height: 1px; background: #D9DDE3;"></span><span style="font-size: 16px;"><b>pauta</b> 1 px. Separa linhas.</span></div>
+          <div style="display: grid; grid-template-columns: 120px 1fr; gap: 12px; align-items: center;"><span style="height: 24px; background: #FFFFFF; box-shadow: 0 28px 50px -30px rgba(23,34,56,.5);"></span><span style="font-size: 16px;"><b>sombra-tela</b> só na moldura do app.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 COMPONENTES -->
+  <section id="comp" style="display: flex; flex-direction: column; gap: 40px;">
+    <div style="display: flex; flex-direction: column; gap: 20px;">
+      <p style="margin: 0; display: flex; gap: 14px; border-top: 2px solid #172238; padding-top: 12px; font: 500 13px/1.3 'Spline Sans Mono', monospace; color: #565E6B;"><span style="color: #172238; font-weight: 600;">05</span><span>Componentes</span></p>
+      <h2 style="margin: 0; font: 800 clamp(30px, 1.2rem + 1.7vw, 44px)/1.08 'Schibsted Grotesk', sans-serif; letter-spacing: -.03em;">Componentes</h2>
+    </div>
+
+    <!-- 05.01 cabeçalho -->
+    <div style="display: flex; flex-direction: column; gap: 14px;">
+      <p style="margin: 0; font: 600 13px/1.3 'Spline Sans Mono', monospace;">05.01 Cabeçalho <span style="color: #565E6B; font-weight: 500;">· fixo no topo, 64 px, regra-forte embaixo. No celular o botão vira só o ícone, com 44 × 44.</span></p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr)); gap: 16px;">
+        <div style="background: #F5F6F2; border: 1px solid #D9DDE3; border-bottom: 2px solid #172238; min-height: 64px; padding: 0 20px; display: flex; align-items: center; justify-content: space-between; max-width: 390px;"><span style="display: flex; align-items: center; gap: 10px;"><svg width="30" height="30" aria-hidden="true"><use href="#tulhia"></use></svg><span style="font: 800 26px/1 'Schibsted Grotesk', sans-serif; letter-spacing: -.045em;">Tulhia</span></span><a href="https://wa.me/?text=Quero%20conhecer%20a%20Tulhia" aria-label="Falar com um consultor no WhatsApp" style="width: 44px; height: 44px; display: grid; place-items: center; border: 1.5px solid #172238; border-radius: 4px; color: #172238;"><svg width="20" height="20"><use href="#zap"></use></svg></a></div>
+        <div style="background: #F5F6F2; border: 1px solid #D9DDE3; border-bottom: 2px solid #172238; min-height: 64px; padding: 0 24px; display: flex; align-items: center; justify-content: space-between;"><span style="display: flex; align-items: center; gap: 10px;"><svg width="30" height="30" aria-hidden="true"><use href="#tulhia"></use></svg><span style="font: 800 26px/1 'Schibsted Grotesk', sans-serif; letter-spacing: -.045em;">Tulhia</span></span><a href="https://wa.me/?text=Quero%20conhecer%20a%20Tulhia" style="display: inline-flex; align-items: center; gap: 10px; min-height: 46px; padding: 0 18px; border: 1.5px solid #172238; border-radius: 4px; text-decoration: none; color: #172238; font: 600 16px/1 'Schibsted Grotesk', sans-serif;"><svg width="20" height="20"><use href="#zap"></use></svg>Falar com um consultor</a></div>
+      </div>
+    </div>
+
+    <!-- 05.02 botões -->
+    <div style="display: flex; flex-direction: column; gap: 14px;">
+      <p style="margin: 0; font: 600 13px/1.3 'Spline Sans Mono', monospace;">05.02 Botões <span style="color: #565E6B; font-weight: 500;">· todos abrem o WhatsApp e têm o ícone dele. Primário com 54 px de altura, secundário com 46, foco com anel de 3 px em marca-texto.</span></p>
+      <div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: center;">
+        <a href="https://wa.me/?text=Quero%20conhecer%20a%20Tulhia" style="display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 54px; padding: 0 26px; background: #172238; color: #FFFFFF; text-decoration: none; border-radius: 4px; font: 600 17px/1 'Schibsted Grotesk', sans-serif;" class="ds-hover-1"><svg width="22" height="22"><use href="#zap"></use></svg>Falar com um consultor</a>
+        <a href="https://wa.me/?text=Quero%20conhecer%20a%20Tulhia" style="display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 54px; padding: 0 26px; background: #2A3A5C; color: #FFFFFF; text-decoration: none; border-radius: 4px; font: 600 17px/1 'Schibsted Grotesk', sans-serif;"><svg width="22" height="22"><use href="#zap"></use></svg>Hover</a>
+        <a href="https://wa.me/?text=Quero%20conhecer%20a%20Tulhia" style="display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 54px; padding: 0 26px; background: #172238; color: #FFFFFF; text-decoration: none; border-radius: 4px; font: 600 17px/1 'Schibsted Grotesk', sans-serif; outline: 3px solid #F2D43D; outline-offset: 3px;"><svg width="22" height="22"><use href="#zap"></use></svg>Foco</a>
+        <a href="https://wa.me/?text=Quero%20conhecer%20a%20Tulhia" style="display: inline-flex; align-items: center; gap: 10px; min-height: 46px; padding: 0 18px; border: 1.5px solid #172238; border-radius: 4px; text-decoration: none; color: #172238; font: 600 16px/1 'Schibsted Grotesk', sans-serif;" class="ds-hover-2"><svg width="20" height="20"><use href="#zap"></use></svg>Secundário</a>
+        <span style="background: #172238; padding: 16px; display: inline-flex;"><a href="https://wa.me/?text=Quero%20conhecer%20a%20Tulhia" style="display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 54px; padding: 0 26px; background: #F5F6F2; color: #172238; text-decoration: none; border-radius: 4px; font: 700 17px/1 'Schibsted Grotesk', sans-serif;"><svg width="22" height="22"><use href="#zap"></use></svg>Claro, sobre tinta</a></span>
+      </div>
+      <p style="margin: 0; font-size: 16px; color: #565E6B;">Embaixo de todo botão vem a mesma linha: Abre o WhatsApp. A conversa não obriga a nada.</p>
+    </div>
+
+    <!-- 05.03 lista de confiança -->
+    <div style="display: flex; flex-direction: column; gap: 14px;">
+      <p style="margin: 0; font: 600 13px/1.3 'Spline Sans Mono', monospace;">05.03 Lista de confiança <span style="color: #565E6B; font-weight: 500;">· caixa de conferência marcada, como no livro. Até três itens.</span></p>
+      <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px 22px;">
+        <li style="display: flex; align-items: center; gap: 10px; font-size: 16px; color: #3B4352;"><span style="width: 22px; height: 22px; border: 1.5px solid #172238; display: grid; place-items: center; color: #172238;"><svg width="16" height="16"><use href="#check"></use></svg></span>Acesso ao banco só para ver</li>
+        <li style="display: flex; align-items: center; gap: 10px; font-size: 16px; color: #3B4352;"><span style="width: 22px; height: 22px; border: 1.5px solid #172238; display: grid; place-items: center; color: #172238;"><svg width="16" height="16"><use href="#check"></use></svg></span>Sem digitar extrato</li>
+        <li style="display: flex; align-items: center; gap: 10px; font-size: 16px; color: #3B4352;"><span style="width: 22px; height: 22px; border: 1.5px solid #172238; display: grid; place-items: center; color: #172238;"><svg width="16" height="16"><use href="#check"></use></svg></span>Um consultor responsável pela sua fazenda</li>
+      </ul>
+    </div>
+
+    <!-- 05.04 lançamento -->
+    <div style="display: flex; flex-direction: column; gap: 14px;">
+      <p style="margin: 0; font: 600 13px/1.3 'Spline Sans Mono', monospace;">05.04 Lançamento <span style="color: #565E6B; font-weight: 500;">· a ideia da marca em forma de componente: rótulo à esquerda, valor em mono à direita, marca-texto só na linha que importa.</span></p>
+      <div style="max-width: 460px; border-top: 2px solid #172238;">
+        <div style="display: grid; grid-template-columns: 1fr auto; align-items: baseline; gap: 12px; padding: 13px 0; border-bottom: 1px solid #D9DDE3;"><span style="font-size: 16px; color: #565E6B;">Você deve</span><span style="font: 600 21px/1 'Spline Sans Mono', monospace; letter-spacing: -.02em;">R$ 5,91 mi</span></div>
+        <div style="display: grid; grid-template-columns: 1fr auto; align-items: baseline; gap: 12px; padding: 13px 0; border-bottom: 1px solid #D9DDE3;"><span style="font-size: 16px; color: #565E6B;">Próxima parcela, R$ 161 mil</span><span style="font: 600 21px/1 'Spline Sans Mono', monospace; letter-spacing: -.02em;">10/03/2027</span></div>
+        <div style="display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 2px solid #172238;"><span style="font-size: 16px; font-weight: 700;">O caixa aperta em</span><mark style="font: 600 21px/1 'Spline Sans Mono', monospace; letter-spacing: -.02em; background: #F2D43D; color: #172238; padding: 6px 8px; transform: rotate(-1deg);">mai/2027</mark></div>
+        <p style="margin: 8px 0 0; font: 500 12px/1.3 'Spline Sans Mono', monospace; color: #565E6B;">Dados de demonstração</p>
+      </div>
+    </div>
+
+    <!-- 05.05 faixa de números -->
+    <div style="display: flex; flex-direction: column; gap: 14px;">
+      <p style="margin: 0; font: 600 13px/1.3 'Spline Sans Mono', monospace;">05.05 Faixa de números <span style="color: #565E6B; font-weight: 500;">· fundo tinta, número em 800, explicação em névoa. São três colunas no desktop e uma pilha no celular.</span></p>
+      <div style="background: #172238; color: #F5F6F2; padding: 8px 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 0 32px;">
+        <div style="display: grid; grid-template-columns: auto 1fr; gap: 6px 18px; align-items: baseline; padding: 22px 0; border-bottom: 1px solid #2E3D5C;"><b style="font: 800 44px/1 'Schibsted Grotesk', sans-serif; letter-spacing: -.04em; white-space: nowrap;">12 meses</b><span style="font-size: 16px; line-height: 1.4; color: #B8C0CC;">de projeção do caixa, com cada parcela dentro</span></div>
+        <div style="display: grid; grid-template-columns: auto 1fr; gap: 6px 18px; align-items: baseline; padding: 22px 0; border-bottom: 1px solid #2E3D5C;"><b style="font: 800 44px/1 'Schibsted Grotesk', sans-serif; letter-spacing: -.04em; white-space: nowrap;">15 dias</b><span style="font-size: 16px; line-height: 1.4; color: #B8C0CC;">antes do vencimento, a parcela entra no aviso do consultor</span></div>
+        <div style="display: grid; grid-template-columns: auto 1fr; gap: 6px 18px; align-items: baseline; padding: 22px 0; border-bottom: 1px solid #2E3D5C;"><b style="font: 800 44px/1 'Schibsted Grotesk', sans-serif; letter-spacing: -.04em; white-space: nowrap;">1 página</b><span style="font-size: 16px; line-height: 1.4; color: #B8C0CC;">de relatório por mês, para imprimir ou mandar ao contador</span></div>
+      </div>
+    </div>
+
+    <!-- 05.06 citação + cabeçalho de seção -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap: 32px;">
+      <div style="display: flex; flex-direction: column; gap: 14px;">
+        <p style="margin: 0; font: 600 13px/1.3 'Spline Sans Mono', monospace;">05.06 Citação <span style="color: #565E6B; font-weight: 500;">· fala do produtor, aspas em mono, entre linhas de pauta. Sem barra lateral.</span></p>
+        <div style="border-top: 1px solid #D9DDE3;">
+          <blockquote style="margin: 0; padding: 16px 0; border-bottom: 1px solid #D9DDE3; display: grid; grid-template-columns: 22px 1fr; gap: 8px; font: 600 21px/1.35 'Schibsted Grotesk', sans-serif;"><span aria-hidden="true" style="font-family: 'Spline Sans Mono', monospace; color: #565E6B;">“</span><span>Vendi a safra, paguei o que vencia e o dinheiro sumiu. Não sei dizer para onde foi.</span></blockquote>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 14px;">
+        <p style="margin: 0; font: 600 13px/1.3 'Spline Sans Mono', monospace;">05.07 Abertura de seção <span style="color: #565E6B; font-weight: 500;">· regra-forte, número da folha e nome da seção. Depois, o h2.</span></p>
+        <div>
+          <p style="margin: 0; display: flex; gap: 14px; border-top: 2px solid #172238; padding-top: 12px; font: 500 13px/1.3 'Spline Sans Mono', monospace; color: #565E6B;"><span style="color: #172238; font-weight: 600;">03</span><span>Dívidas</span></p>
+          <h3 style="margin: 16px 0 0; font: 800 32px/1.08 'Schibsted Grotesk', sans-serif; letter-spacing: -.03em;">Todas as dívidas num calendário só</h3>
+        </div>
+      </div>
+    </div>
+
+    <!-- 05.08 cartão de entrega -->
+    <div style="display: flex; flex-direction: column; gap: 14px;">
+      <p style="margin: 0; font: 600 13px/1.3 'Spline Sans Mono', monospace;">05.08 Cartão de entrega <span style="color: #565E6B; font-weight: 500;">· duas formas. A coluna do livro, para listar o que você recebe, e o cartão, para detalhar uma entrega. Nunca três cartões iguais em fila.</span></p>
+      <div style="background: #ECEEE8; padding: 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 24px;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid #172238;">
+          <div style="display: flex; flex-direction: column; gap: 10px; padding: 20px 20px 24px; border-left: 1px solid #C4CAD3; border-bottom: 1px solid #C4CAD3;"><span style="font: 600 13px/1 'Spline Sans Mono', monospace; color: #565E6B;">01</span><b style="font: 700 21px/1.25 'Schibsted Grotesk', sans-serif;">Calendário de dívidas</b><p style="margin: 0; font-size: 16px; color: #3B4352;">Todas as parcelas, de todos os credores, no dia em que vencem.</p></div>
+          <div style="display: flex; flex-direction: column; gap: 10px; padding: 20px 20px 24px; border-left: 1px solid #C4CAD3; border-bottom: 1px solid #C4CAD3;"><span style="font: 600 13px/1 'Spline Sans Mono', monospace; color: #565E6B;">02</span><b style="font: 700 21px/1.25 'Schibsted Grotesk', sans-serif;">Caixa dos próximos 12 meses</b><p style="margin: 0; font-size: 16px; color: #3B4352;">Com cada parcela dentro e o mês que aperta marcado.</p></div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+          <div style="background: #FFFFFF; border: 1px solid #D9DDE3; border-radius: 2px; padding: 18px 20px; display: flex; flex-direction: column; gap: 6px;"><b style="font: 700 19px/1.3 'Schibsted Grotesk', sans-serif;">Parcelas chegando</b><p style="margin: 0; font-size: 16px; color: #565E6B;">O que vence nos próximos 15 dias, o total e o dinheiro nas contas.</p></div>
+          <div role="note" style="background: #FFFFFF; border: 1.5px solid #B3261E; border-radius: 2px; padding: 16px 18px; display: flex; flex-direction: column; gap: 8px;"><span style="display: flex; align-items: center; gap: 8px; font: 600 12px/1.2 'Spline Sans Mono', monospace; color: #B3261E;"><span style="width: 10px; height: 10px; background: #B3261E;"></span>Aviso · variante de caixa negativo</span><p style="margin: 0; font: 700 19px/1.35 'Schibsted Grotesk', sans-serif;">Maio de 2027: o caixa fica negativo. No pior mês, junho, faltam <span style="font-family: 'Spline Sans Mono', monospace; color: #B3261E;">R$ 492.859</span>.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 05.09 seção escura -->
+    <div style="display: flex; flex-direction: column; gap: 14px;">
+      <p style="margin: 0; font: 600 13px/1.3 'Spline Sans Mono', monospace;">05.09 Seção escura <span style="color: #565E6B; font-weight: 500;">· fundo tinta, texto em almaço e névoa, cartões em tinta-cartão. No máximo duas por página, nunca seguidas.</span></p>
+      <div style="background: #172238; color: #F5F6F2; padding: 36px 28px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 28px;">
+        <div>
+          <p style="margin: 0; display: flex; gap: 14px; border-top: 2px solid #F5F6F2; padding-top: 12px; font: 500 13px/1.3 'Spline Sans Mono', monospace; color: #B8C0CC;"><span style="color: #F5F6F2; font-weight: 600;">07</span><span>Segurança</span></p>
+          <h3 style="margin: 16px 0 0; font: 800 32px/1.08 'Schibsted Grotesk', sans-serif; letter-spacing: -.03em;">O acesso ao seu banco é só para ver</h3>
+          <p style="margin: 14px 0 0; font-size: 18px; color: #B8C0CC;">O acesso é pelo Open Finance, o sistema regulado pelo Banco Central.</p>
+        </div>
+        <div style="background: #1F2C47; border: 1px solid #2E3D5C; border-radius: 2px; padding: 20px 22px; display: flex; flex-direction: column; gap: 6px; align-self: start;"><b style="font: 700 19px/1.3 'Schibsted Grotesk', sans-serif;">Ninguém pede a sua senha</b><p style="margin: 0; font-size: 16px; color: #B8C0CC;">Ninguém da nossa equipe pede a senha do seu banco nem o código que chega no seu celular.</p></div>
+      </div>
+    </div>
+
+    <!-- 05.10 moldura -->
+    <div style="display: flex; flex-direction: column; gap: 14px;">
+      <p style="margin: 0; font: 600 13px/1.3 'Spline Sans Mono', monospace;">05.10 Moldura de tela do app <span style="color: #565E6B; font-weight: 500;">· folha com borda tinta e faixa de topo com o nome da tela e a etiqueta de demonstração. A captura entra como veio, sem mexer nos dados.</span></p>
+      <div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start;">
+        <figure style="margin: 0; width: min(100%, 420px); display: flex; flex-direction: column; gap: 12px;">
+          <div style="background: #FFFFFF; border: 1px solid #172238; border-radius: 2px; overflow: hidden; box-shadow: 0 28px 50px -30px rgba(23,34,56,.5);">
+            <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 10px 14px; background: #F5F6F2; border-bottom: 1px solid #D9DDE3; font: 500 12px/1.2 'Spline Sans Mono', monospace; color: #565E6B;"><span>Tulhia · Dívidas</span><span style="border: 1px solid #565E6B; padding: 4px 7px; color: #172238;">Dados de demonstração</span></div>
+            <img src="telas-app/lp-dividas-resumo-1076.webp" alt="Resumo das dívidas no aplicativo. Dados de demonstração." style="width: 100%;">
+          </div>
+          <figcaption style="font-size: 16px; color: #565E6B;">Legenda em 16 px, número primeiro.</figcaption>
+        </figure>
+        <figure style="margin: 0; width: min(100%, 300px);">
+          <div style="background: #FFFFFF; border: 1px solid #172238; border-radius: 2px; overflow: hidden;">
+            <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 10px 14px; background: #F5F6F2; border-bottom: 1px solid #D9DDE3; font: 500 12px/1.2 'Spline Sans Mono', monospace; color: #565E6B;"><span>Cédula</span><span style="border: 1px solid #565E6B; padding: 4px 7px; color: #172238;">Dados de demonstração</span></div>
+            <img src="telas-app/lp-cedula-cronograma.webp" alt="Cronograma de uma cédula no aplicativo: total a pagar de R$ 1.139.616, com juros de R$ 279.616 e último vencimento em 15/10/2032. Dados de demonstração." style="width: 100%;">
+          </div>
+        </figure>
+      </div>
+    </div>
+
+    <!-- 05.11 passo -->
+    <div style="display: flex; flex-direction: column; gap: 14px;">
+      <p style="margin: 0; font: 600 13px/1.3 'Spline Sans Mono', monospace;">05.11 Passo numerado <span style="color: #565E6B; font-weight: 500;">· número grande em 800 numa coluna de 64 px, regra-forte em cima, sem cartão.</span></p>
+      <ol style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 0 32px;">
+        <li style="display: grid; grid-template-columns: 64px 1fr; gap: 4px 16px; padding: 20px 0 24px; border-top: 2px solid #172238;"><span style="grid-row: span 2; font: 800 56px/.9 'Schibsted Grotesk', sans-serif; letter-spacing: -.05em;">1</span><b style="font: 700 21px/1.25 'Schibsted Grotesk', sans-serif;">Você manda as cédulas</b><p style="margin: 0; font-size: 17px; color: #3B4352;">O consultor confere com você o calendário das dívidas, contrato por contrato.</p></li>
+        <li style="display: grid; grid-template-columns: 64px 1fr; gap: 4px 16px; padding: 20px 0 24px; border-top: 2px solid #172238;"><span style="grid-row: span 2; font: 800 56px/.9 'Schibsted Grotesk', sans-serif; letter-spacing: -.05em;">2</span><b style="font: 700 21px/1.25 'Schibsted Grotesk', sans-serif;">Você autoriza os bancos</b><p style="margin: 0; font-size: 17px; color: #3B4352;">O acesso é só para ver.</p></li>
+      </ol>
+    </div>
+
+    <!-- 05.12 FAQ -->
+    <div style="display: flex; flex-direction: column; gap: 14px;">
+      <p style="margin: 0; font: 600 13px/1.3 'Spline Sans Mono', monospace;">05.12 Perguntas <span style="color: #565E6B; font-weight: 500;">· linhas de 60 px no mínimo, sinal de mais em mono, abre no toque.</span></p>
+      <div style="max-width: 680px; border-top: 2px solid #172238;">
+        <details open="" style="border-bottom: 1px solid #C4CAD3;"><summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 60px; padding: 14px 0; cursor: pointer; font: 600 19px/1.35 'Schibsted Grotesk', sans-serif;">Quanto custa?<span aria-hidden="true" style="font: 500 22px/1 'Spline Sans Mono', monospace;">+</span></summary><p style="margin: 0 0 20px; font-size: 17px; color: #3B4352;">A Tulhia é um acompanhamento com consultor, com o aplicativo junto. O valor você fica sabendo na primeira conversa, antes de assumir qualquer compromisso.</p></details>
+        <details style="border-bottom: 1px solid #C4CAD3;"><summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 60px; padding: 14px 0; cursor: pointer; font: 600 19px/1.35 'Schibsted Grotesk', sans-serif;">Meu banco entra?<span aria-hidden="true" style="font: 500 22px/1 'Spline Sans Mono', monospace;">+</span></summary><p style="margin: 0 0 20px; font-size: 17px; color: #3B4352;">Depende do banco. Na primeira conversa o consultor olha os seus, um por um.</p></details>
+      </div>
+    </div>
+
+    <!-- 05.13 chamada final -->
+    <div style="display: flex; flex-direction: column; gap: 14px;">
+      <p style="margin: 0; font: 600 13px/1.3 'Spline Sans Mono', monospace;">05.13 Chamada final <span style="color: #565E6B; font-weight: 500;">· foto dos silos com véu de tinta (62% a 90%), três linhas numeradas e botão claro.</span></p>
+      <div style="position: relative; background: #172238; color: #F5F6F2; overflow: hidden;">
+        <img src="fotos/lp-silos-2000.webp" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 60%;">
+        <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(23,34,56,.62), rgba(23,34,56,.9));"></div>
+        <div style="position: relative; padding: 48px 28px; display: flex; flex-direction: column; gap: 22px; max-width: 640px;">
+          <h3 style="margin: 0; font: 800 36px/1.05 'Schibsted Grotesk', sans-serif; letter-spacing: -.035em; color: #FFFFFF;">Converse com um consultor antes de decidir</h3>
+          <div style="display: grid; grid-template-columns: 32px 1fr; gap: 12px; padding: 14px 0; border-top: 1px solid rgba(245,246,242,.35); border-bottom: 1px solid rgba(245,246,242,.35); font-size: 18px; color: #EEF0F3;"><span style="font: 600 15px/1.6 'Spline Sans Mono', monospace;">1</span><span>Você conta quais contratos tem, com quem e quando vencem, do jeito que lembra.</span></div>
+          <a href="https://wa.me/?text=Quero%20conhecer%20a%20Tulhia" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 10px; min-height: 56px; padding: 0 28px; background: #F5F6F2; color: #172238; text-decoration: none; border-radius: 4px; font: 700 17px/1 'Schibsted Grotesk', sans-serif;"><svg width="22" height="22"><use href="#zap"></use></svg>Falar com um consultor</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 05.14 barra + 05.15 rodapé -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap: 32px; align-items: start;">
+      <div style="display: flex; flex-direction: column; gap: 14px;">
+        <p style="margin: 0; font: 600 13px/1.3 'Spline Sans Mono', monospace;">05.14 Barra fixa de CTA <span style="color: #565E6B; font-weight: 500;">· só no celular, abaixo de 900 px. Fica presa embaixo e respeita a área segura da tela.</span></p>
+        <div style="max-width: 390px; background: rgba(245,246,242,.96); border: 1px solid #D9DDE3; border-top-color: #C4CAD3; padding: 10px 20px 14px;"><a href="https://wa.me/?text=Quero%20conhecer%20a%20Tulhia" style="display: flex; align-items: center; justify-content: center; gap: 10px; min-height: 54px; background: #172238; color: #FFFFFF; text-decoration: none; border-radius: 4px; font: 600 17px/1 'Schibsted Grotesk', sans-serif;"><svg width="22" height="22"><use href="#zap"></use></svg>Falar com um consultor</a></div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 14px;">
+        <p style="margin: 0; font: 600 13px/1.3 'Spline Sans Mono', monospace;">05.15 Rodapé <span style="color: #565E6B; font-weight: 500;">· tinta-fundo. As linhas de LGPD e de pré-lançamento são obrigatórias.</span></p>
+        <div style="background: #0F1729; color: #B8C0CC; padding: 28px; display: flex; flex-direction: column; gap: 12px; font-size: 16px; line-height: 1.55;">
+          <p style="margin: 0; display: flex; align-items: center; gap: 10px; color: #F5F6F2;"><svg width="28" height="28"><use href="#tulhia-claro"></use></svg><span style="font: 800 24px/1 'Schibsted Grotesk', sans-serif; letter-spacing: -.045em;">Tulhia</span></p>
+          <p style="margin: 0;">Privacidade (LGPD): esta página não tem formulário e não registra o que você faz nela. Os botões só abrem o WhatsApp.</p>
+          <p style="margin: 0; font: 500 14px/1.4 'Spline Sans Mono', monospace; color: #D5DAE2;">Produto em pré-lançamento. Prévia para aprovação.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 05.16 foto -->
+    <div style="display: flex; flex-direction: column; gap: 14px;">
+      <p style="margin: 0; font: 600 13px/1.3 'Spline Sans Mono', monospace;">05.16 Fotografia <span style="color: #565E6B; font-weight: 500;">· documental, luz natural, o produtor com a fazenda dele em volta. Cantos retos e proporções 4:5 ou 3:2. Sem filtro e sem texto em cima, a não ser na chamada final.</span></p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 12px;">
+        <img src="fotos/lp-varanda-1400.webp" alt="Produtor na varanda da sede lendo uma mensagem no celular." style="width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 62% 40%;">
+        <img src="fotos/lp-frases-1400.webp" alt="Produtor de chapéu apoiado na cerca, com uma agenda de couro na mão." style="width: 100%; aspect-ratio: 4 / 5; object-fit: cover;">
+        <img src="fotos/lp-mesa-1400.webp" alt="Consultor e produtor à mesa do escritório da fazenda." style="width: 100%; aspect-ratio: 4 / 5; object-fit: cover;">
+        <img src="fotos/lp-silos-retrato-1400.webp" alt="Produtor de braços cruzados em frente aos silos." style="width: 100%; aspect-ratio: 4 / 5; object-fit: cover;">
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 REGRAS -->
+  <section id="regras" style="display: flex; flex-direction: column; gap: 24px;">
+    <p style="margin: 0; display: flex; gap: 14px; border-top: 2px solid #172238; padding-top: 12px; font: 500 13px/1.3 'Spline Sans Mono', monospace; color: #565E6B;"><span style="color: #172238; font-weight: 600;">06</span><span>Regras</span></p>
+    <h2 style="margin: 0; font: 800 clamp(30px, 1.2rem + 1.7vw, 44px)/1.08 'Schibsted Grotesk', sans-serif; letter-spacing: -.03em;">Como escrever e montar</h2>
+    <ol style="margin: 0; padding: 0; list-style: none; border-top: 2px solid #172238; max-width: 820px;">
+      <li style="display: grid; grid-template-columns: 40px 1fr; gap: 12px; padding: 14px 0; border-bottom: 1px solid #D9DDE3;"><span style="font: 600 14px/1.6 'Spline Sans Mono', monospace;">1</span><span>Primeiro o número, depois a explicação: “15 dias antes do vencimento”.</span></li>
+      <li style="display: grid; grid-template-columns: 40px 1fr; gap: 12px; padding: 14px 0; border-bottom: 1px solid #D9DDE3;"><span style="font: 600 14px/1.6 'Spline Sans Mono', monospace;">2</span><span>Marca-texto uma vez por tela. Se dois números disputam, a tela tem informação demais.</span></li>
+      <li style="display: grid; grid-template-columns: 40px 1fr; gap: 12px; padding: 14px 0; border-bottom: 1px solid #D9DDE3;"><span style="font: 600 14px/1.6 'Spline Sans Mono', monospace;">3</span><span>Todo número de exemplo leva a etiqueta “Dados de demonstração”.</span></li>
+      <li style="display: grid; grid-template-columns: 40px 1fr; gap: 12px; padding: 14px 0; border-bottom: 1px solid #D9DDE3;"><span style="font: 600 14px/1.6 'Spline Sans Mono', monospace;">4</span><span>Títulos com só a primeira letra maiúscula. Sem travessão, sem emoji, sem “transformar” ou “revolucionar”.</span></li>
+      <li style="display: grid; grid-template-columns: 40px 1fr; gap: 12px; padding: 14px 0; border-bottom: 1px solid #D9DDE3;"><span style="font: 600 14px/1.6 'Spline Sans Mono', monospace;">5</span><span>Texto alinhado à esquerda. Linhas e colunas fazem o trabalho que sombra e arredondado fariam.</span></li>
+      <li style="display: grid; grid-template-columns: 40px 1fr; gap: 12px; padding: 14px 0; border-bottom: 2px solid #172238;"><span style="font: 600 14px/1.6 'Spline Sans Mono', monospace;">6</span><span>Toque mínimo de 44 px e corpo mínimo de 16 px. Página sem rolagem horizontal em 360 px.</span></li>
+    </ol>
+  </section>
+</div>
+</body>
+</html>
